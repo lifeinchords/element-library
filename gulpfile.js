@@ -1,25 +1,29 @@
 var batch = require('gulp-batch');
 var browserSync = require('browser-sync').create();
 var clean = require('gulp-clean');
-var clearFix = require('postcss-clearfix');
-var colorShort = require('postcss-color-short');
+// var clearFix = require('postcss-clearfix');
+// var colorShort = require('postcss-color-short');
 var cssMqpacker = require('css-mqpacker');
 var cssNano = require('cssnano');
 var cssNext = require('postcss-cssnext');
-var discardComments = require('postcss-discard-comments');
+// var discardComments = require('postcss-discard-comments');
 var focus = require('postcss-focus');
 var gulp = require('gulp');
 var htmlHint = require('gulp-htmlhint');
 var imageOp = require('gulp-image-optimization');
 var jade = require('gulp-jade');
 var postcss = require('gulp-postcss');
-var precss = require('precss');
-var px2Rem = require('postcss-pxtorem');
-var responsiveImages = require('postcss-responsive-images');
+// var precss = require('precss');
+// var px2Rem = require('postcss-pxtorem');
+// var responsiveImages = require('postcss-responsive-images');
 var short = require ('postcss-short');
 var size = require('postcss-size');
 // var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
+
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('autoprefixer');
+var lost = require('lost');
 
 gulp.task('default', ['server'], function() {
   gulp.watch('src/jade/**', function(event) {
@@ -62,25 +66,20 @@ gulp.task('html', function() {
 
 gulp.task('postcss', function () {
   var processors = [
-    use({
-      modules:[
-        'postcss-short',
-        // 'postcss-color-short',
-        'postcss-focus',
-        'precss',
-        'postcss-size',
-        // 'postcss-clearfix',
-        'postcss-pxtorem',
-        'postcss-cssnext',
-        'css-mqpacker',
-        'postcss-discard-comments',
-        'cssnano',
-        'postcss-browser-reporter',
-        'lost',
-        'autoprefixer'
-
-      ]
-    }),
+    // colorShort,
+    focus,
+    // precss,
+    short,
+    size,
+    // responsiveImages,
+    // clearFix,
+    // px2Rem,
+    cssNext,
+    // cssMqpacker,
+    // discardComments,
+    cssNano,
+    lost,
+    autoprefixer
   ];
   return gulp.src('src/css/*.css')
     .pipe(postcss(processors))
