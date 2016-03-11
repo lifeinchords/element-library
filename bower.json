@@ -1,0 +1,10 @@
+{
+  "name": "package",
+  "version": "0.1.0",
+  "dependencies": {
+    "fastclick": "~1.0.6",
+    "gsap": "~1.18.2",
+    "verge": "~1.9.1",
+    "jquery": "~2.2.1"
+  }
+}

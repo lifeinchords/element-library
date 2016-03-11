@@ -1,0 +1,270 @@
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+0.0 General
+1.0 Reset
+1.1 Grid
+1.2 Typography
+*/
+
+
+/* 0.0 General
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+:root{
+  --fontSize: 1rem;
+  --fullWidth: 100%;
+}
+
+@custom-media --small-viewport (max-width: 30em);
+@custom-media --large-viewport (min-width: 75em);
+
+@custom-selector --grid .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12
+
+/* 1.0 Reset
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+a {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:matches(:hover, :any-link) {
+  outline: 0;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled], html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+textarea {
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* 1.1 Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.container {
+  margin: * auto;
+  padding: * 15px;
+  clear: fix-legacy;
+}
+
+.row {
+  margin: * -15px;
+  clear: fix-legacy;
+}
+
+
+--grid {
+  position: relative;
+  min-height: 1px;
+  padding: * 15px;
+}
+
+@media (width >= 62em) {
+  .container {
+    width: 970px;
+  }
+
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11 {
+    float: left;
+  }
+
+  .col-12 {
+    width: var(--fullWidth);
+  }
+
+  .col-11 {
+    width: calc(var(--fullWidth)/12*11);
+  }
+
+  .col-10 {
+    width: calc(var(--fullWidth)/12*10);
+  }
+
+  .col-9 {
+    width: calc(var(--fullWidth)/12*9);
+  }
+
+  .col-8 {
+    width: calc(var(--fullWidth)/12*8);
+  }
+
+  .col-7 {
+    width: calc(var(--fullWidth)/12*7);
+  }
+
+  .col-6 {
+    width: calc(var(--fullWidth)/12*6);
+  }
+
+  .col-5 {
+    width: calc(var(--fullWidth)/12*5);
+  }
+
+  .col-4 {
+    width: calc(var(--fullWidth)/12*4);
+  }
+
+  .col-3 {
+    width: calc(var(--fullWidth)/12*3);
+  }
+
+  .col-2 {
+    width: calc(var(--fullWidth)/12*2);
+  }
+
+  .col-1 {
+    width: calc(var(--fullWidth)/12*1);
+  }
+}
+
+@media (--large-viewport) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.img-responsive {
+  image-size: responsive;
+}
+
+.clearfix {
+  clear: fix-legacy;
+}
+
+/* 1.2 Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 2rem 0;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: calc(var(--fontSize)*2);
+  line-height: 1.25;
+  letter-spacing: -.1rem;
+}
+
+h2 {
+  font-size: calc(var(--fontSize)*1.8);
+  line-height: 1.3;
+  letter-spacing: -.1rem;
+}
+
+h3 {
+  font-size: calc(var(--fontSize)*1.6);
+  line-height: 1.35;
+  letter-spacing: -.08rem;
+}
+
+h4 {
+  font-size: calc(var(--fontSize)*1.4);
+  line-height: 1.5;
+  letter-spacing: -.05rem;
+}
+
+h5 {
+  font-size: calc(var(--fontSize)*1.2);
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+h6 {
+  font-size: var(--fontSize);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+@media (width >= 34.375em) {
+  h1 {
+    font-size: calc(var(--fontSize)*2.4);
+  }
+
+  h2 {
+    font-size: calc(var(--fontSize)*2);
+  }
+
+  h3 {
+    font-size: calc(var(--fontSize)*1.8);
+  }
+
+  h4 {
+    font-size: calc(var(--fontSize)*1.6);
+  }
+
+  h5 {
+    font-size: calc(var(--fontSize)*1.4);
+  }
+
+  h6 {
+    font-size: calc(var(--fontSize)*1.2);
+  }
+}
