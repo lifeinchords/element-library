@@ -17,7 +17,6 @@
 }
 
 @custom-media --sm (width >= 1rem);
-/* @custom-media --sm (min-width: var(--smMinWidth));  // circular dependency. TODO */
 @custom-media --md (width >= 30rem);
 @custom-media --lg (width >= 50rem);
 @custom-media --xl (width >= 60rem);

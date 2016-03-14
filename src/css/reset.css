@@ -1,15 +1,6 @@
 :root {
   --fontSize: 2rem;
-  --textColor: blue;
 }
-
-
-/* 
-  TODO:
-  no declarations here, before html declare.
-  not sure why that's an issue
-
-*/
 
 *, *:before, *:after {
   box-sizing: border-box;
