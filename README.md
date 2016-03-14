@@ -56,30 +56,25 @@ TODO
 
 - sample color, loading, then animate
 - combine mo.js with gsap cycle: https://www.youtube.com/watch?v=0HhjSPVuRHA
-- used shared mq CSS vars
 - add bpoint css helper
 - off canvas http://codepen.io/oknoblich/pen/klnjw
-
 - set up .node-version
-
 - card - opening, closing with Greensock
 - sound synthesis with flocking
 - touch enabled
 - favicon
 - add growl to gulp on fail
-
 - Q: why does PostCSS crash on // comments?
-
 - gulp-tinypng-compress, svgomg
-
-
-
 
 
 
 
 LATER
 -------
+
+
+- grid bars, sync up bpoints in 
 
 - only show bpoint helper in dev
 - apply styling to 2 bpoints, excluding edges for example
@@ -97,6 +92,8 @@ LATER
   http://madebymike.com.au/writing/precise-control-responsive-typography/
   http://simplaio.github.io/rucksack/docs/#responsive-type
 
+
+- set up responsejs.com to browserify, remove from js/vendor/
 
 
 

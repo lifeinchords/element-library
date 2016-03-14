@@ -2,10 +2,23 @@
 
 
 .card {
-  @media (--sm) { lost-column: 4/4; }
-  @media (--md) { lost-column: 4/6; }
-  @media (--lg) { lost-column: 16/20; }
-  @media (--xl) { lost-column: 20/32; }
+  @media ($sm) { 
+    lost-column: 4/4; }
+ 
+  @media ($md) { 
+    lost-column: 4/6; 
+    /* lost-offset: -1;  */
+  }
+ 
+  @media ($lg) { 
+    lost-column: 16/20; 
+    /* lost-offset: -2;  */
+  }
+ 
+  @media ($xl) { 
+    lost-column: 20/32; 
+    /* lost-offset: -6;  */
+  }
 
   background-color: lightgray;
   box-shadow: rgba(0, 0, 0, 0.2) 0 16px 32px 0;

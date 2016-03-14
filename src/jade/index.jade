@@ -18,15 +18,31 @@ html(lang='en')
 
     link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet', type='text/css')
 
+
   body
 
-
-    .header
-      h3 Living Style Guide
+    //- .header
+    //-   h3 Living Style Guide
 
     .content
       .card.component
         .card__row--image
         .card__row--title
           h3.card__title theo jens
+
+    .breakpoint-helper
+
+  //- bower downloaded. manually referenced
+  script(src='../app/jquery/dist/jquery.slim.js')
+  script(src='../app/verge/verge.js')
+  script(src='../app/gsap/src/uncompressed/TimelineMax.js')
+  script(src='../app/fastclick/lib/fastclick.js')
+
+  //- manually copied via npm/node_modules
+  //- TODO: refactor to browserify
+  script(src='../js/response.js', rel='preload')
+
+  //- app
+  script(src='../js/main.js', rel='preload')
+
 
