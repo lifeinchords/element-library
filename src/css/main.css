@@ -7,25 +7,40 @@
       
 */
 
-/*  override defaults. 
+/*  Every Lost Grid used will use these settings, instead of their defaults.
     These settings work across files. */
 @lost flexbox flex;
-@lost gutter 1em;
+@lost gutter 1rem;
+
+:root {
+  --textColor: blue;
+}
+
+@custom-media --sm (width >= 1rem);
+/* @custom-media --sm (min-width: var(--smMinWidth));  // circular dependency. TODO */
+@custom-media --md (width >= 30rem);
+@custom-media --lg (width >= 50rem);
+@custom-media --xl (width >= 60rem);
+
+/* @custom-selector :--container .container; */
+
+.container {
+  lost-column: 1/1;
+
+  margin: * auto;
+  padding: * 1rem;
+  background-color: green;
+}
+
+@media (--sm) { .container { background-color: orange;  }}
+@media (--md) { .container { background-color: purple; }}
+@media (--lg) { .container { background-color: yellow; }}
+@media (--xl) { .container { background-color: gold; }}
 
 body { 
-  font-family: 'Lato';
-  font-size: 16px;
-
-  lost-container: row;
+  lost-flex-container: row;
 }
 
-
-.box {
-  lost-column: 1/4;
-  
-  background: #DDD;
-  height: 10em;
+.container h1 {
+  color: var(--textColor);
 }
-
-
-

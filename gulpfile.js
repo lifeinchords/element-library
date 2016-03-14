@@ -1,10 +1,11 @@
+// var fs = require('fs')
 var batch = require('gulp-batch');
 var browserSync = require('browser-sync').create();
 var clean = require('gulp-clean');
 // var clearFix = require('postcss-clearfix');
 // var colorShort = require('postcss-color-short');
 var cssMqpacker = require('css-mqpacker');
-var cssNano = require('cssnano');
+// var cssNano = require('cssnano');
 var cssNext = require('postcss-cssnext');
 // var discardComments = require('postcss-discard-comments');
 var focus = require('postcss-focus');
@@ -16,6 +17,7 @@ var postcss = require('gulp-postcss');
 // var precss = require('precss');
 // var px2Rem = require('postcss-pxtorem');
 // var responsiveImages = require('postcss-responsive-images');
+// var selector = require('postcss-custom-selectors')
 var short = require ('postcss-short');
 var size = require('postcss-size');
 // var uglify = require('gulp-uglify');
@@ -64,6 +66,7 @@ gulp.task('html', function() {
 
 // PostCSS
 
+// more here
 gulp.task('postcss', function () {
   var processors = [
     // colorShort,
@@ -74,12 +77,33 @@ gulp.task('postcss', function () {
     // responsiveImages,
     // clearFix,
     // px2Rem,
-    cssNext,
+    
+    // Order is important! 
+    // Refer to: https://github.com/MoOx/postcss-cssnext/blob/master/src/features.js
+    cssNext({
+      features: {
+        customProperties: true,
+        calc: true,
+        nesting: true,
+        customMedia: true,
+        mediaMinmax: true,
+        customSelectors: true,
+        rem: true,
+      }
+    }),
+
     // cssMqpacker,
     // discardComments,
-    cssNano,
+    // cssNano,
     lost,
+
     autoprefixer
+    // autoprefixer({
+    //   browsers: ['last 1 version']
+    // }),
+
+
+    // selector
   ];
   return gulp.src('src/css/*.css')
     .pipe(postcss(processors))
