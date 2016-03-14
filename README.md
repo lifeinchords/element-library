@@ -1,8 +1,3 @@
-
-
-
-
-
 SETUP
 -------
 #### get latest node
@@ -59,19 +54,23 @@ To be sure, delete /dist
 TODO
 ------
 
+- sample color, loading, then animate
+- combine mo.js with gsap cycle: https://www.youtube.com/watch?v=0HhjSPVuRHA
+- used shared mq CSS vars
 - add bpoint css helper
+- off canvas http://codepen.io/oknoblich/pen/klnjw
+
 - set up .node-version
 
 - card - opening, closing with Greensock
 - sound synthesis with flocking
 - touch enabled
-- responsive type: http://simplaio.github.io/rucksack/docs/#responsive-type
 - favicon
 - add growl to gulp on fail
 
 - Q: why does PostCSS crash on // comments?
 
-
+- gulp-tinypng-compress, svgomg
 
 
 
@@ -88,7 +87,15 @@ LATER
 - CSSVars inside custom-media:
 /* @custom-media --sm (min-width: var(--smMinWidth));  // circular dependency. TODO */
 
+- experiment with 
+  https://github.com/arccoza/postcss-if-media
+  https://github.com/WolfgangKluge/postcss-media-variables
 
+- element queries: https://github.com/tysonmatanich/elementQuery
+
+- responsive type: 
+  http://madebymike.com.au/writing/precise-control-responsive-typography/
+  http://simplaio.github.io/rucksack/docs/#responsive-type
 
 
 
@@ -104,6 +111,7 @@ http://w3-org.9356.n7.nabble.com/css-variables-mediaqueries-Allow-var-in-media-q
 https://github.com/MadLittleMods/postcss-css-variables
 https://github.com/postcss/postcss-custom-media/
 https://github.com/postcss/postcss-custom-properties/issues/24
+https://github.com/arccoza/postcss-if-media
 
 http://stackoverflow.com/questions/31614049/shared-variables-in-postcss?rq=1
 https://github.com/postcss/postcss-simple-vars

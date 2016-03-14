@@ -1,0 +1,41 @@
+@import "mq.css"; 
+
+
+$blue: #056ef0;
+
+
+.content {
+  lost-column: 1/1 flex;  // this itself, should be full width
+  lost-flex-container: row; // for the components, inside of this.
+
+  height: 100vh;
+
+  background: linear-gradient(to left, #606c88 , #3f4c6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  display: flex;
+}
+
+
+@media ($sm) {
+  .go{ color: red; }
+}
+
+.header {
+  lost-column: 1/1;
+
+  margin: * auto;
+  padding: * 1rem;
+  background-color: lightgray;
+  color: $blue;
+}
+
+body { 
+  lost-flex-container: row;
+}
+
+.header h3 {
+  @media (--sm) { color: var(--textColor); }
+  @media (--md) { color: red; }
+  @media (--lg) { color: gold; }
+  @media (--xl) { color: white; }
+}

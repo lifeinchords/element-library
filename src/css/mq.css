@@ -1,0 +1,36 @@
+/* 
+    Lost grid system
+    https://github.com/peterramsing/lost
+
+    Conventions:
+      - Put lost properties first in each;
+      
+*/
+
+/*  Every Lost Grid used will use these settings, instead of their defaults.
+    These settings work across files. */
+@lost flexbox flex;
+@lost gutter 1rem;
+
+/********************************************/
+
+/* 
+  TODO: apply styling to 2 bpoints, excluding edges. Similar to :
+    @include mq(tablet, desktop) { }
+ 
+  https://github.com/sass-mq/sass-mq 
+*/
+
+/* TODO: reuse these, remove from other css files */
+@custom-media --sm (width >= 1rem);
+@custom-media --md (width >= 30rem);
+@custom-media --lg (width >= 50rem);
+@custom-media --xl (width >= 60rem);
+
+
+$sm: (width >= 1rem);
+
+
+:root {
+  --textColor: blue;
+}
