@@ -9,8 +9,9 @@ body { }
   lost-flex-container: column; 
 
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to left, #606c88 , #3f4c6b); 
+  padding: 5rem *;
 }
 
 /* .header {

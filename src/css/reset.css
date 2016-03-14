@@ -1,6 +1,4 @@
-:root {
-  --fontSize: 2rem;
-}
+$fontSize: 2rem;
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -96,38 +94,38 @@ h1, h2, h3, h4, h5, h6 {
 
 /* TODO: reuse same vars in both font-size + line-height */
 h1 {
-  font-size: calc( var(--fontSize) * 2);
-  line-height: var(--fontSize) * 2);
+  font-size: $fontSize * 2;
+  line-height: $fontSize;
   letter-spacing: -0.1rem;
 }
 
 h2 {
-  font-size: calc( var(--fontSize) * 1.8);
-  line-height: var(--fontSize) * 1.8);
+  font-size: $fontSize * 1.8;
+  line-height: $fontSize;
   letter-spacing: -0.1rem;
 }
 
 h3 {
-  font-size: calc( var(--fontSize) * 1.6);
-  line-height: var(--fontSize) * 1.6);
+  font-size: $fontSize * 1.6;
+  line-height: $fontSize;
   letter-spacing: -0.08rem;
 }
 
 h4 {
-  font-size: calc( var(--fontSize) * 1.4);
-  line-height: var(--fontSize) * 1.4);
+  font-size: $fontSize * 1.4;
+  line-height: $fontSize;
   letter-spacing: -0.05rem;
 }
 
 h5 {
-  font-size: calc( var(--fontSize) * 1.2);
-  line-height: var(--fontSize) * 1.2);
+  font-size: $fontSize * 1.2;
+  line-height: $fontSize;
   letter-spacing: 0;
 }
 
 h6 {
-  font-size: var(--fontSize);
-  line-height: var(--fontSize);
+  font-size: $fontSize;
+  line-height: $fontSize;
   letter-spacing: 0;
 }
 

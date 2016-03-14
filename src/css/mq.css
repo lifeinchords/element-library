@@ -43,15 +43,15 @@ $xl: (width >= 90rem);
 
 
 .breakpoint-helper {
-  position: absolute;
+  position: fixed;
   width: 100%;
   font-size: 0.90rem;
   padding: 0.25rem 1rem;
   color: white;
   bottom: 0;
   
-  @media ($sm) { background-color: rgba(0, 0, 0, 0.25); &:after { content: 'sm: []'; }  }
-  @media ($md) { background-color: rgba(0, 0, 0, 0.40); &:after { content: 'md: [] []'; } }
-  @media ($lg) { background-color: rgba(0, 0, 0, 0.60); &:after { content: 'lg: [] [] []'; } }
-  @media ($xl) { background-color: rgba(0, 0, 0, 0.70); &:after { content: 'xl: [] [] [] []'; }  }
+  @media ($sm) { background-color: rgba(0, 0, 0, 0.25); &:after { content: 'Sm: o'; }  }
+  @media ($md) { background-color: rgba(0, 0, 0, 0.40); &:after { content: 'Md: o o'; } }
+  @media ($lg) { background-color: rgba(0, 0, 0, 0.60); &:after { content: 'Lg: o o o'; } }
+  @media ($xl) { background-color: rgba(0, 0, 0, 0.70); &:after { content: 'Xl: o o o o'; }  }
 }
