@@ -87,7 +87,6 @@ gulp.task('postcss', function () {
         nesting: true,
         customMedia: true,
         mediaMinmax: true,
-        customSelectors: true,
         rem: true,
       }
     }),

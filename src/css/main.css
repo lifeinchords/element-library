@@ -22,25 +22,32 @@
 @custom-media --lg (width >= 50rem);
 @custom-media --xl (width >= 60rem);
 
-/* @custom-selector :--container .container; */
+/* 
+  TODO: apply styling to 2 bpoints, excluding edges. Similar to :
+    @include mq(tablet, desktop) { }
+ 
+  https://github.com/sass-mq/sass-mq 
+*/
 
 .container {
   lost-column: 1/1;
 
   margin: * auto;
   padding: * 1rem;
-  background-color: green;
-}
 
-@media (--sm) { .container { background-color: orange;  }}
-@media (--md) { .container { background-color: purple; }}
-@media (--lg) { .container { background-color: yellow; }}
-@media (--xl) { .container { background-color: gold; }}
+  @media (--sm) { background-color: orange; }
+  @media (--md) { background-color: purple; }
+  @media (--lg) { background-color: yellow; }
+  @media (--xl) { background-color: gold; }
+}
 
 body { 
   lost-flex-container: row;
 }
 
 .container h1 {
-  color: var(--textColor);
+  @media (--sm) { color: var(--textColor); }
+  @media (--md) { color: red; }
+  @media (--lg) { color: gold; }
+  @media (--xl) { color: white; }
 }

@@ -69,12 +69,18 @@ TODO
 - favicon
 - add growl to gulp on fail
 
+- Q: why does PostCSS crash on // comments?
 
 
 LATER
 -------
 
 - only show bpoint helper in dev
+- apply styling to 2 bpoints, excluding edges for example
+- CSSVars inside custom-media:
+
+
+
 
 
 
