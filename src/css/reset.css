@@ -89,7 +89,8 @@ td, th {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
+  font-family: "Source Sans Pro";
+  font-weight: 200;
 }
 
 /* TODO: reuse same vars in both font-size + line-height */

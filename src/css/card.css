@@ -20,32 +20,53 @@
     lost-offset: -9/32; 
   }
 
+  position: relative;
+  overflow: hidden;
+
+  height: 0;
+  width: 0;
   background-color: lightgray;
   box-shadow: rgba(0, 0, 0, 0.2) 0 16px 32px 0;
   margin: 2rem *;
+  
+  background-color: linear-gradient(to left, #1D1C20 , #27262C); 
+
+/*   background-size: cover;
+  background-position: 50%; */
 }
 
 
-.card__row--image {
-  background-size: cover;
-  background-position: 50%;
-  min-height: 25rem;
-}
-
-.card__row--title {
-  background-color: #444052;
+.card__title {
   padding: 1rem;
 }
 
-.card__title {
+.color--light {
   color: white;
-  background-color: #444052;
 }
 
-/* TODO: move images into data.json */
-.card:nth-of-type(1) .card__row--image {
-  background-image: url('http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg');
+.color--dark {
+  color: #444052;
 }
-.card:nth-of-type(2) .card__row--image {
-  background-image: url('http://img11.nnm.me/9/f/0/b/a/27ec573f52f51780a9b325c4d49.jpg');
+
+
+.card:nth-of-type(1) {
+
 }
+
+.card:nth-of-type(2) {
+  background-image: url('http://static.tumblr.com/4142f99c88c3f2a7cf65dbb32d889e74/ydhfeo0/Zrmo2ltwk/tumblr_static_21w21rfvvr284wsssc4k4gs8w.jpg');
+}
+.card:nth-of-type(3) {
+  background-image: url('http://grimoire-c-mag.com/wp-content/uploads/2015/02/Grimoire-C-Magazine-JEREMY-MANN-5.jpg');
+}
+
+
+.card__image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0; 
+}
+

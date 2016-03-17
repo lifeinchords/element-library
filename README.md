@@ -54,6 +54,7 @@ To be sure, delete /dist
 TODO
 ------
 
+- transparency blendmode
 - sample color, loading, then animate
 - combine mo.js with gsap cycle: https://www.youtube.com/watch?v=0HhjSPVuRHA
 - add bpoint css helper
@@ -94,6 +95,12 @@ LATER
 
 
 - set up responsejs.com to browserify, remove from js/vendor/
+
+- color during loading: https://github.com/fraser-hemp/gradify
+
+
+- break surfaces with WebGL: https://css-tricks.com/rendering-svg-paths-in-webgl/
+
 
 
 

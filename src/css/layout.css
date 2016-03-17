@@ -22,3 +22,10 @@ body { }
   background-color: lightgray;
 }
  */
+
+
+
+.blend--red {
+  background-color: red !important;
+  background-blend-mode: multiply;
+}

@@ -17,7 +17,7 @@ html(lang='en')
     link(rel='stylesheet' href='css/card.css')
 
     link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet', type='text/css')
-
+    link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300', rel='stylesheet', type='text/css')
 
   body
 
@@ -25,29 +25,31 @@ html(lang='en')
     //-   h3 Living Style Guide
 
     .content
-      .card.component
-        .card__row--image
-        .card__row--title
-          h3.card__title theo jens
+      .card.component.card--one.color--dark
+        h3.card__title theo jens
+        img.card__image(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
 
-      .card.component
-        .card__row--image
-        .card__row--title
-          h3.card__title theo jens 2
+      //- .card.component.card--two.color--light
+      //-   h3.card__title ashley mackenzie
+
+      //- .card.component.card--three.color--light
+      //-   h3.card__title jeremy mann
 
     .breakpoint-helper
 
   //- bower downloaded. manually referenced
   script(src='../app/jquery/dist/jquery.slim.js')
   script(src='../app/verge/verge.js')
-  script(src='../app/gsap/src/uncompressed/TimelineMax.js')
+  script(src='../app/gsap/src/uncompressed/TweenMax.js')
   script(src='../app/fastclick/lib/fastclick.js')
+  //- script(src='http://cdn.jsdelivr.net/mojs/latest/mo.min.js')
+  
 
   //- manually copied via npm/node_modules
   //- TODO: refactor to browserify
-  script(src='../js/response.js', rel='preload')
+  script(src='../js/response.js')
 
   //- app
-  script(src='../js/main.js', rel='preload')
+  script(src='../js/main.js')
 
 
