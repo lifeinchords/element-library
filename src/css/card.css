@@ -37,7 +37,10 @@
 
 
 .card__title {
+  position: relative;
+  z-index: 1;
   padding: 1rem;
+  opacity: 0;
 }
 
 .color--light {
@@ -48,18 +51,18 @@
   color: #444052;
 }
 
-
+/* 
 .card:nth-of-type(1) {
 
 }
 
 .card:nth-of-type(2) {
-  background-image: url('http://static.tumblr.com/4142f99c88c3f2a7cf65dbb32d889e74/ydhfeo0/Zrmo2ltwk/tumblr_static_21w21rfvvr284wsssc4k4gs8w.jpg');
+  background-image: url('');
 }
 .card:nth-of-type(3) {
-  background-image: url('http://grimoire-c-mag.com/wp-content/uploads/2015/02/Grimoire-C-Magazine-JEREMY-MANN-5.jpg');
+  background-image: url('');
 }
-
+ */
 
 .card__image {
   position: absolute;
@@ -69,4 +72,21 @@
   height: auto;
   opacity: 0; 
 }
+
+.card__button {
+  width: 20rem;
+  height:5rem;
+  background: blue;
+  color: white;
+}
+
+.card__button:hover {
+  opacity: 0.85;
+}
+
+.card__button--play {
+
+}
+
+
 

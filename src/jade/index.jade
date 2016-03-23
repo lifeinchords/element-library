@@ -21,19 +21,43 @@ html(lang='en')
 
   body
 
-    //- .header
-    //-   h3 Living Style Guide
+    .sidebar
+      .title Components
+
+      ul.nav
+        li
+          a.active Card
+        li
+          a Stack
+        li
+          a Buttons
+        li
+          a Avatar
+        li
+          a Forms
+        li
+          a Layouts
+
 
     .content
+
+      a.button
+
+      .row--actions
+        .card__button.card__button--open Open
+        .card__button.card__button--close Close
+
       .card.component.card--one.color--dark
         h3.card__title theo jens
         img.card__image(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
 
-      //- .card.component.card--two.color--light
-      //-   h3.card__title ashley mackenzie
+      .card.component.card--two.color--light
+        h3.card__title ashley mackenzie
+        img.card__image(src='http://static.tumblr.com/4142f99c88c3f2a7cf65dbb32d889e74/ydhfeo0/Zrmo2ltwk/tumblr_static_21w21rfvvr284wsssc4k4gs8w.jpg')
 
-      //- .card.component.card--three.color--light
-      //-   h3.card__title jeremy mann
+      .card.component.card--three.color--light
+        h3.card__title jeremy mann
+        img.card__image(src='http://grimoire-c-mag.com/wp-content/uploads/2015/02/Grimoire-C-Magazine-JEREMY-MANN-5.jpg')
 
     .breakpoint-helper
 

@@ -1,7 +1,46 @@
 @import "mq.css"; 
+@import url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css');
 
 
-body { }
+html, body {
+  height: 100%;
+}
+
+
+body {
+  display: flex;
+  background: #333;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+
+.sidebar {
+  position: absolute;
+  width: 220px;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #eee;
+  box-shadow: 0 0 5px rgba(0,0,0,1);
+  transform: translate3d(0,0,0);
+  transition: transform .3s;
+}
+
+.content.isOpen {
+  transform: translate3d(220px,0,0);
+}
+
+.button {
+  cursor: pointer;
+}
+
+.button:before {
+  content: '\f0c9';
+  font: 1rem fontawesome;
+}
 
 
 .content {
@@ -11,7 +50,7 @@ body { }
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(to left, #606c88 , #3f4c6b); 
-  padding: 5rem *;
+  /* padding: 5rem *; */
 }
 
 /* .header {
@@ -24,8 +63,60 @@ body { }
  */
 
 
+.title {
+  font-size: 16px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  color: #eee;
+  border-bottom: 1px solid #222;
+  background: #2a2a2a;
+}
+
+.nav li a {
+  position: relative;
+  display: block;
+  padding: 15px 15px 15px 50px;
+  font-size: 12px;
+  color: #eee;
+  border-bottom: 1px solid #222;
+}
+
+.nav li a:before {
+  font: 14px fontawesome;
+  position: absolute;
+  top: 14px;
+  left: 20px;
+}
+
+.nav li:nth-child(1) a:before { content: '\f00a'; }
+.nav li:nth-child(2) a:before { content: '\f012'; }
+.nav li:nth-child(3) a:before { content: '\f0e8'; }
+.nav li:nth-child(4) a:before { content: '\f0c3'; }
+.nav li:nth-child(5) a:before { content: '\f022'; }
+.nav li:nth-child(6) a:before { content: '\f115'; }
+.nav li:nth-child(7) a:before { content: '\f085'; }
+.nav li:nth-child(8) a:before { content: '\f023'; left: 23px; }
+
+.nav li a:hover {
+  background: #444;
+}
+
+.nav li a.active {
+  box-shadow: inset 5px 0 0 #5b5, inset 6px 0 0 #222;
+  background: #444;
+}
+
+
 
 .blend--red {
   background-color: red !important;
   background-blend-mode: multiply;
 }
+
+
+.row--actions {
+  lost-column: 1/1;
+}
+

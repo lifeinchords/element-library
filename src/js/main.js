@@ -1,4 +1,7 @@
+"use strict"; 
+
 $(document).ready(function () {
+
 
   console.log('ready');
 
@@ -115,11 +118,9 @@ $(document).ready(function () {
     .fromTo   ( $card, 0.3, { width: 2, height: 400 }, { width: 500, height: 400, ease: Power4.easeOut, immediateRender: false }, "+=0.15" ) 
     .to       ( $card, 1, { scale: 1.1, ease: Circ.easeInOut  }, "-=0.5" ) 
     .to       ( ".card--one .card__image", 0.3, { opacity: 1, ease: Power4.easeOut }, "-=0.5"  ) 
+    .to       ( ".card--one .card__title", 0.3, { opacity: 1, ease: Power0.easeNone }, "-=0.3"  ) 
 
     // .call     ( scrollTop  )
-
-    // .set      ( $('.page__home'), { display: 'none' })
-    // .set      ( $projectContent, { display: 'block' })
 
     // .call     ( showAndWireCloseProject )
 
@@ -131,10 +132,19 @@ $(document).ready(function () {
 
     // .play     ()
 
-  $('body').on('click', function(){
-    console.log('open');
+  $('.card__button--open').on('click', function(){
     timeline.play();
   })
+
+  $('.card__button--close').on('click', function(){
+    timeline.reverse();
+  })
+
+
+  // off-canvas menu adapted from: http://codepen.io/oknoblich/pen/klnjw
+  $('.button').on('click', function() {
+    $('.content').toggleClass('isOpen');
+  });
 
   function showAndWireCloseProject (){
 

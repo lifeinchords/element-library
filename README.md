@@ -54,26 +54,39 @@ To be sure, delete /dist
 TODO
 ------
 
-- transparency blendmode
-- sample color, loading, then animate
+- add basic flocking, triggers single sample on squash
+- collection of cards, 4 up in L, 3 up in M, centered with flanking cards on XL
+- onclick, jump up, squash + stretch
+- loading ping
+- loading ping bounces to the left, turns into cutting intro line
+- motion trail line
+- try FM in flocking. Look at sound example from mags.
+- polygon shape avatars, layout like documentary mag
+
+- secondary animation for card?
+
+- what does weight mean for card content and how does it affect card behavior?
+
 - combine mo.js with gsap cycle: https://www.youtube.com/watch?v=0HhjSPVuRHA
 - add bpoint css helper
-- off canvas http://codepen.io/oknoblich/pen/klnjw
-- set up .node-version
-- card - opening, closing with Greensock
-- sound synthesis with flocking
 - touch enabled
-- favicon
-- add growl to gulp on fail
-- Q: why does PostCSS crash on // comments?
-- gulp-tinypng-compress, svgomg
-
+- sample color, loading, then animate
+- try Scorekeeper layout
 
 
 
 LATER
 -------
 
+- wave pulse across card container
+- email oleg: motion trail line?
+- favicon
+- add growl to gulp on fail
+- Q: why does PostCSS crash on // comments?
+- gulp-tinypng-compress, svgomg
+
+- transparency blendmode
+- set up .node-version
 
 - grid bars, sync up bpoints in 
 
@@ -100,6 +113,10 @@ LATER
 
 
 - break surfaces with WebGL: https://css-tricks.com/rendering-svg-paths-in-webgl/
+
+
+- custom GSAP eases: http://greensock.com/forums/topic/7952-javascript-custom-ease/page-2#entry51357
+
 
 
 
