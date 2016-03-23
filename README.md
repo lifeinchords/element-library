@@ -54,9 +54,10 @@ To be sure, delete /dist
 TODO
 ------
 
-- get vars from Lost calc
 - add basic flocking, triggers single sample on squash
-- collection of cards, 4 up in L, 3 up in M, centered with flanking cards on XL
+
+- collection of cards, 4 up in L, 3 up in M, centered with flanking cards on XL. get vars from Lost calc
+
 - onclick, jump up, squash + stretch
 - loading ping
 - loading ping bounces to the left, turns into cutting intro line
@@ -79,6 +80,7 @@ TODO
 LATER
 -------
 
+- remove time scaling from card timeline 1, embed into timings.
 - wave pulse across card container
 - email oleg: motion trail line?
 - favicon

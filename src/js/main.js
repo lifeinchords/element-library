@@ -122,18 +122,25 @@ $(document).ready(function () {
     // .fromTo   ( $card, 0.2, { width: 2, height: 0 }, { width: 2, height: cardHeightPx, ease: Power4.easeOut }  ) 
     // .fromTo   ( $card, 0.3, { width: 2, height: cardHeightPx }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, immediateRender: false }, "+=0.15" ) 
 
-    // open from center left -> center right -> wipe up
+    // open from center left -> center right
     .fromTo   ( $card, 0.2, { width: 2, height: 0, y: cardHeightPx/2 }, { width: cardWidthPx, height: 2, ease: Power4.easeOut }  ) 
-    .fromTo   ( $card, 0.3, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.15" ) 
+    
+    // open to top + bottom edges
+    .fromTo   ( $card, 0.20, { width: cardWidthPx, height: 2, y: cardHeightPx/2, scale: 1 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, "+=0.4" ) 
+    .to       ( $card, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.35" ) 
 
-    .to       ( $card, 0.6, { scale: 1.1, ease: Back.easeOut.config(1.3)  }, "-=0.3" ) // delay it backwards by half the duration 
+    // open to top + bottom edges. Alternate 1: with extra beat
+    // .fromTo   ( $card, 0.2, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
+    // .to       ( $card, 0.2, { scale: 0.99, ease: Power4.easeIn  }, "+=0.05" ) 
+    // .to       ( $card, 0.1, { scale: 1.02, ease: Power4.easeIn  }, "+=0.25" ) 
+    // .to       ( $card, 0.2, { scale: 1, ease: Circ.easeOut  }, "+=0.15" ) 
 
-    // alternate way to exaggerate animation in
-    // .to       ( $card, 0.6, { scale: 1.15, ease: Power4.easeInOut  }, "-=0.375" ) // delay it backwards by half the duration 
-    // .to       ( $card, 0.1, { scale: 1.13, ease: Power4.easeOut  } ) 
+    // open to top + bottom edges. Alternate 2: using Back. More fluid, but less control.
+    // .fromTo   ( $card, 0.2, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
+    // .to        ( $card, 0.6, { scale: 1.1, ease: Back.easeOut.config(1.3)  }, "-=0.3" ) // delay it backwards by half the duration 
 
-    .to       ( ".card--one .card__image", 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.5"  ) 
-    .to       ( ".card--one .card__title", 0.3, { opacity: 1, ease: Power0.easeNone }, "-=0.3"  ) 
+    .to       ( ".card--one .card__image", 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
+    .to       ( ".card--one .card__title", 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
 
     // .call     ( scrollTop  )
 
@@ -148,11 +155,14 @@ $(document).ready(function () {
     // .play     ()
 
   $('.card__button--open').on('click', function(){
+    timeline.timeScale( 1.5 );
     timeline.play();
   })
 
   $('.card__button--close').on('click', function(){
+    timeline.timeScale( 1.5 );
     timeline.reverse();
+
   })
 
 
