@@ -54,6 +54,7 @@ To be sure, delete /dist
 TODO
 ------
 
+- get vars from Lost calc
 - add basic flocking, triggers single sample on squash
 - collection of cards, 4 up in L, 3 up in M, centered with flanking cards on XL
 - onclick, jump up, squash + stretch

@@ -109,15 +109,30 @@ $(document).ready(function () {
     paused: true,
     force3D: true
   });
-  
+
+      
+  var cardHeightPx = 400;
+  var cardWidthPx = 500;
 
   timeline
 
     // .set      ( $card, { autoAlpha: 1, opacity: 1 })
-    .fromTo   ( $card, 0.2, { width: 2, height: 0 }, { width: 2, height: 400, ease: Power4.easeOut }  ) 
-    .fromTo   ( $card, 0.3, { width: 2, height: 400 }, { width: 500, height: 400, ease: Power4.easeOut, immediateRender: false }, "+=0.15" ) 
-    .to       ( $card, 1, { scale: 1.1, ease: Circ.easeInOut  }, "-=0.5" ) 
-    .to       ( ".card--one .card__image", 0.3, { opacity: 1, ease: Power4.easeOut }, "-=0.5"  ) 
+
+    // open from top left -> bottom left -> wipe right 
+    // .fromTo   ( $card, 0.2, { width: 2, height: 0 }, { width: 2, height: cardHeightPx, ease: Power4.easeOut }  ) 
+    // .fromTo   ( $card, 0.3, { width: 2, height: cardHeightPx }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, immediateRender: false }, "+=0.15" ) 
+
+    // open from center left -> center right -> wipe up
+    .fromTo   ( $card, 0.2, { width: 2, height: 0, y: cardHeightPx/2 }, { width: cardWidthPx, height: 2, ease: Power4.easeOut }  ) 
+    .fromTo   ( $card, 0.3, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.15" ) 
+
+    .to       ( $card, 0.6, { scale: 1.1, ease: Back.easeOut.config(1.3)  }, "-=0.3" ) // delay it backwards by half the duration 
+
+    // alternate way to exaggerate animation in
+    // .to       ( $card, 0.6, { scale: 1.15, ease: Power4.easeInOut  }, "-=0.375" ) // delay it backwards by half the duration 
+    // .to       ( $card, 0.1, { scale: 1.13, ease: Power4.easeOut  } ) 
+
+    .to       ( ".card--one .card__image", 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.5"  ) 
     .to       ( ".card--one .card__title", 0.3, { opacity: 1, ease: Power0.easeNone }, "-=0.3"  ) 
 
     // .call     ( scrollTop  )
