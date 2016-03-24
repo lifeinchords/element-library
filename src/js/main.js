@@ -2,6 +2,10 @@
 
 $(document).ready(function () {
 
+  // setting up syntax highlighting for element documentation
+  hljs.initHighlightingOnLoad();
+
+
   console.log('ready');
 
   // ****************** SETUP ********************
@@ -87,13 +91,13 @@ $(document).ready(function () {
   var isAnimating;
 
   var timelineStart = function () {
-    // console.log('morphOpen: timelineStart ...');
+    // console.log('morphEnter: timelineStart ...');
     // disableScrolling();
     isAnimating = true;
   };
 
   var timelineDone = function () {
-    // console.log('morphOpen: timelineDone ...');
+    // console.log('morphExit: timelineDone ...');
     // enableScrolling();
     isAnimating = false;
     // injectEmbeds();
@@ -114,24 +118,24 @@ $(document).ready(function () {
 
     // .set      ( $card, { autoAlpha: 1, opacity: 1 })
 
-    // open from top left -> bottom left -> wipe right 
+    // enter from top left -> bottom left -> wipe right 
     // .fromTo   ( $card, 0.2, { width: 2, height: 0 }, { width: 2, height: cardHeightPx, ease: Power4.easeOut }  ) 
     // .fromTo   ( $card, 0.3, { width: 2, height: cardHeightPx }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, immediateRender: false }, "+=0.15" ) 
 
-    // open from center left -> center right
+    // enter from center left -> center right
     .fromTo   ( $card, 0.2, { width: 2, height: 0, y: cardHeightPx/2 }, { width: cardWidthPx, height: 2, ease: Power4.easeOut }  ) 
     
-    // open to top + bottom edges
+    // enter to top + bottom edges
     .fromTo   ( $card, 0.20, { width: cardWidthPx, height: 2, y: cardHeightPx/2, scale: 1 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, "+=0.4" ) 
     .to       ( $card, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25" ) 
 
-    // open to top + bottom edges. Alternate 1: with extra beat
+    // enter to top + bottom edges. Alternate 1: with extra beat
     // .fromTo   ( $card, 0.2, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
     // .to       ( $card, 0.2, { scale: 0.99, ease: Power4.easeIn  }, "+=0.05" ) 
     // .to       ( $card, 0.1, { scale: 1.02, ease: Power4.easeIn  }, "+=0.25" ) 
     // .to       ( $card, 0.2, { scale: 1, ease: Circ.easeOut  }, "+=0.15" ) 
 
-    // open to top + bottom edges. Alternate 2: using Back. More fluid, but less control.
+    // enter to top + bottom edges. Alternate 2: using Back. More fluid, but less control.
     // .fromTo   ( $card, 0.2, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
     // .to        ( $card, 0.6, { scale: 1.1, ease: Back.easeOut.config(1.3)  }, "-=0.3" ) // delay it backwards by half the duration 
 
@@ -150,19 +154,19 @@ $(document).ready(function () {
 
     // .play     ()
 
-  $('.lsg__button--open').on('click', function(){
+  $('.lsg__button--enter').on('click', function(){
     timeline.timeScale( 1.5 );
     timeline.play();
   })
 
-  $('.lsg__button--close').on('click', function(){
+  $('.lsg__button--exit').on('click', function(){
     timeline.timeScale( 2 );
     timeline.reverse();
   })
 
   // off-canvas menu adapted from: http://codepen.io/oknoblich/pen/klnjw
   $('.lsg__button--menu').on('click', function() {
-    $('.content').toggleClass('is-open');
+    $('.content').toggleClass('is-enter');
   });
 
   function showAndWireCloseProject (){

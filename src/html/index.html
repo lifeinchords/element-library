@@ -12,40 +12,55 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="../app/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+    <link rel="stylesheet" href="../app/highlightjs/styles/default.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="sidebar">
+      <div class="sidebar__title">Elements</div>
       <ul class="nav">
-        <li><a class="nav__link"><i class="nav__icon mdi mdi-view-stream"></i>
+        <li class="nav__item"><a class="nav__link"><i href="#cards" class="nav__icon mdi mdi-view-stream"> </i>
             <div class="link__text">Cards</div></a></li>
-        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-layers"></i>
+        <li class="nav__item"><a href="#stacks" class="nav__link nav__link--wip"> <i class="nav__icon mdi mdi-layers"></i>
             <div class="link__text">Stacks</div></a></li>
-        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-gauge"></i>
+        <li class="nav__item"><a href="#gauges" class="nav__link nav__link--wip"> <i class="nav__icon mdi mdi-gauge"></i>
             <div class="link__text">Gauges</div></a></li>
-        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-tag-text-outline"></i>
+        <li class="nav__item"><a href="#tags" class="nav__link nav__link--wip"> <i class="nav__icon mdi mdi-tag-text-outline"></i>
             <div class="link__text">Tags</div></a></li>
-        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-bell"></i>
+        <li class="nav__item"><a href="#loading" class="nav__link nav__link--wip"> <i class="nav__icon mdi mdi-bell"></i>
             <div class="link__text">Loading</div></a></li>
-        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-message-text"></i>
+        <li class="nav__item"><a href="#messages" class="nav__link nav__link--wip"> <i class="nav__icon mdi mdi-message-text"></i>
             <div class="link__text">Messages</div></a></li>
-        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-bullhorn"></i>
+        <li class="nav__item"><a href="#alerts" class="nav__link nav__link--wip"> <i class="nav__icon mdi mdi-bullhorn"></i>
             <div class="link__text">Alerts</div>
             </a></li>
       </ul>
     </div>
     <div class="content"><a class="lsg__button--menu"><i class="mdi mdi-menu menu__icon"></i></a>
-      <div class="row--actions">
-        <div class="lsg__button--ui lsg__button--open"><i class="mdi mdi-ray-start-arrow"></i><span>Open</span></div>
-        <div class="lsg__button--ui lsg__button--close"><i class="mdi mdi-ray-end-arrow"></i><span>Close</span></div>
-      </div>
-      <div class="component__container">
-        <div class="card component card--one color--dark">
-          <h3 class="card__title">theo jens</h3><img src="http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg" class="card__image">
+      <div class="element__container">
+        <div class="row--actions">
+          <h1 class="comp__title">Single Card. 2.5 beats.</h1>
+          <div class="lsg__button--ui lsg__button--enter"><i class="mdi mdi-ray-start-arrow"></i><span>Enter</span></div>
+          <div class="lsg__button--ui lsg__button--exit"><i class="mdi mdi-ray-end-arrow"></i><span>Exit</span></div>
         </div>
-        <div class="component__docs"><i class="nav__icon mdi mdi-code-braces"></i></div>
+        <div class="row--element">
+          <div class="card element card--one color--dark">
+            <h3 class="card__title">theo jens</h3><img src="http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg" class="card__image">
+          </div>
+        </div>
+        <div class="row--docs"><i class="nav__icon mdi mdi-code-braces"></i>
+          <div class="col--half">
+            <pre><code class="html"><html>
+
+</code></pre>
+          </div>
+          <div class="col--half">
+            <pre><code class="css">.cars { margin: 0; }
+
+</code></pre>
+          </div>
+        </div>
       </div>
     </div>
     <div class="breakpoint-helper"></div>
@@ -54,6 +69,7 @@
   <script src="../app/verge/verge.js"></script>
   <script src="../app/gsap/src/uncompressed/TweenMax.js"></script>
   <script src="../app/fastclick/lib/fastclick.js"></script>
+  <script src="../app/highlightjs/highlight.pack.js"></script>
   <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
   <script src="../js/response.js"></script>

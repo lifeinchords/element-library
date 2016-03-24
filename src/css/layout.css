@@ -1,5 +1,7 @@
 @import "mq.css"; 
 
+$color--light-gray: #f3f3f3;
+
 
 html, body {
   height: 100%;
@@ -7,9 +9,12 @@ html, body {
 
 body {
   display: flex;
-  background: #333;
   overflow-x: hidden;
   min-height: 100%;
+}
+
+.header {
+  background: $color--light-gray;
 }
 
 .sidebar {
@@ -18,15 +23,16 @@ body {
 }
 
 .content {
-  flex: 1;
-  padding: 2rem;
-  background: #eee;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
   transform: translate3d(0, 0, 0);
   transition: transform 0.3s;
+
+  width: 100%;
+  min-height: 500%;
+  background: linear-gradient(25deg, #606c88 , #323E5D);
 }
 
-.content.is-open {
+.content.is-enter {
   transform: translate3d(220px, 0, 0);
 }
 
@@ -52,35 +58,21 @@ body {
   font-size: 1.6rem;
 }
 
-
-.content {
-  /* Lost grid needs this, here, on the parent of the individual components. */
-  lost-flex-container: column; 
-
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(to left, #606c88 , #3f4c6b); 
-  /* padding: 5rem *; */
+.comp__title {
+  color: #C8C8C8;
 }
 
-/* .header {
-  lost-column: 1/1;
-
-  margin: * auto;
-  padding: * 1rem;
-  background-color: lightgray;
-}
- */
-
-
-.title {
+.sidebar__title {
   line-height: 3rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #eee;
-  border-bottom: 1px solid #222;
-  background: #2a2a2a;
+  color: #7C7878;
+  background: #EDEDED;
+}
+
+.nav__item {
+  cursor: pointer;
 }
 
 .nav__link {
@@ -88,7 +80,7 @@ body {
   position: relative;
 
   &:hover {
-    background: #444;
+    background: #DED7D7;
   }
 }
 
@@ -99,13 +91,11 @@ body {
 .link__text {
   display: inline-block;
   font-size: 1rem;
-  color: #eee;
-  border-bottom: 1px solid #222;
+  color: #4C4C4C;
 }
 
 .nav__icon {
   padding: 1rem;
-  color: white;
 }
 
 .blend--red {
@@ -117,15 +107,14 @@ body {
   lost-column: 1/1;
 }
 
-
-.component__container {
-
+.row--element {
+  min-height: 30rem;  
 }
 
-.component__itself {
-
+.row--docs {
+  lost-flex-container: column; 
 }
 
-.component__docs {
-
+.col--half {
+  lost-column: 1/2;
 }

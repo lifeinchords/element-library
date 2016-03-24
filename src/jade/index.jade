@@ -16,7 +16,7 @@ html(lang='en')
     link(rel='stylesheet' href='css/layout.css')
     link(rel='stylesheet' href='css/card.css')
     link(rel='stylesheet' href='../app/mdi/css/materialdesignicons.min.css')
-    link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css")
+    link(rel='stylesheet' href='../app/highlightjs/styles/default.css')
 
     link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300', rel='stylesheet', type='text/css')
@@ -28,41 +28,41 @@ html(lang='en')
   body
 
     .sidebar
-      //- .title Components
+      .sidebar__title Elements
 
       ul.nav
-        li
+        li.nav__item
           a.nav__link
-            i.nav__icon.mdi.mdi-view-stream
+            i.nav__icon.mdi.mdi-view-stream( href='#cards') 
             .link__text Cards
 
-        li
-          a.nav__link.nav__link--wip
+        li.nav__item
+          a.nav__link.nav__link--wip( href='#stacks') 
             i.nav__icon.mdi.mdi-layers
             .link__text Stacks
 
-        li
-          a.nav__link.nav__link--wip
+        li.nav__item
+          a.nav__link.nav__link--wip( href='#gauges') 
             i.nav__icon.mdi.mdi-gauge
             .link__text Gauges
 
-        li
-          a.nav__link.nav__link--wip
+        li.nav__item
+          a.nav__link.nav__link--wip( href='#tags') 
             i.nav__icon.mdi.mdi-tag-text-outline
             .link__text Tags
 
-        li
-          a.nav__link.nav__link--wip
+        li.nav__item
+          a.nav__link.nav__link--wip( href='#loading') 
             i.nav__icon.mdi.mdi-bell
             .link__text Loading
 
-        li
-          a.nav__link.nav__link--wip
+        li.nav__item
+          a.nav__link.nav__link--wip( href='#messages') 
             i.nav__icon.mdi.mdi-message-text
             .link__text Messages
 
-        li
-          a.nav__link.nav__link--wip
+        li.nav__item
+          a.nav__link.nav__link--wip( href='#alerts') 
             i.nav__icon.mdi.mdi-bullhorn
             .link__text Alerts
             
@@ -80,30 +80,42 @@ html(lang='en')
       a.lsg__button--menu
         i.mdi.mdi-menu.menu__icon
 
-      .row--actions
-        .lsg__button--ui.lsg__button--open
-          i.mdi.mdi-ray-start-arrow
-          span Open
+      .element__container
+        .row--actions
+          h1.comp__title Single Card. 2.5 beats.
+          .lsg__button--ui.lsg__button--enter
+            i.mdi.mdi-ray-start-arrow
+            span Enter
 
-        .lsg__button--ui.lsg__button--close
-          i.mdi.mdi-ray-end-arrow
-          span Close
+          .lsg__button--ui.lsg__button--exit
+            i.mdi.mdi-ray-end-arrow
+            span Exit
 
+        .row--element
+          .card.element.card--one.color--dark
+            h3.card__title theo jens
+            img.card__image(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
 
-      .component__container
-        .card.component.card--one.color--dark
-          h3.card__title theo jens
-          img.card__image(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
-
-        .component__docs
+        .row--docs
           i.nav__icon.mdi.mdi-code-braces
+          
+          .col--half
+            pre
+              code.html.
+                <html>
+
+
+          .col--half
+            pre
+              code.css.
+                .cars { margin: 0; }
         
 
-      //- .card.component.card--two.color--light
+      //- .card.element.card--two.color--light
       //-   h3.card__title ashley mackenzie
       //-   img.card__image(src='http://static.tumblr.com/4142f99c88c3f2a7cf65dbb32d889e74/ydhfeo0/Zrmo2ltwk/tumblr_static_21w21rfvvr284wsssc4k4gs8w.jpg')
 
-      //- .card.component.card--three.color--light
+      //- .card.element.card--three.color--light
       //-   h3.card__title jeremy mann
       //-   img.card__image(src='http://grimoire-c-mag.com/wp-content/uploads/2015/02/Grimoire-C-Magazine-JEREMY-MANN-5.jpg')
 
@@ -114,6 +126,7 @@ html(lang='en')
   script(src='../app/verge/verge.js')
   script(src='../app/gsap/src/uncompressed/TweenMax.js')
   script(src='../app/fastclick/lib/fastclick.js')
+  script(src='../app/highlightjs/highlight.pack.js')
 
   //- via CDN
   script(src='http://cdn.jsdelivr.net/mojs/latest/mo.min.js')

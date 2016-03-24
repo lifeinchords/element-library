@@ -1,6 +1,5 @@
 @import "mq.css"; 
 
-
 .card {
   @media ($sm) { 
     lost-column: 4/4; }
