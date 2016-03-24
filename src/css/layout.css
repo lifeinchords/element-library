@@ -5,14 +5,12 @@ html, body {
   height: 100%;
 }
 
-
 body {
   display: flex;
   background: #333;
   overflow-x: hidden;
   min-height: 100%;
 }
-
 
 .sidebar {
   position: absolute;
@@ -21,25 +19,37 @@ body {
 
 .content {
   flex: 1;
-  padding: 30px;
+  padding: 2rem;
   background: #eee;
-  box-shadow: 0 0 5px rgba(0,0,0,1);
-  transform: translate3d(0,0,0);
-  transition: transform .3s;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s;
 }
 
-.content.isOpen {
-  transform: translate3d(220px,0,0);
+.content.is-open {
+  transform: translate3d(220px, 0, 0);
 }
 
-.button {
+.lsg__button--ui {
+  display: inline-block;
+  padding: 0.9rem 1.5rem;
+  margin: 0.3rem;
+  background: #9E9D9D;
+  color: #ECECEC;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
-.button:before {
-  content: '\f0c9';
-  font: 1.4rem fontawesome;
+.lsg__button--menu {
+  cursor: pointer;
   color: white;
+}
+
+.menu__icon {
+  font-size: 1.6rem;
 }
 
 
@@ -74,9 +84,20 @@ body {
 }
 
 .nav__link {
-  position: relative;
   display: block;
-  padding: 1rem;
+  position: relative;
+
+  &:hover {
+    background: #444;
+  }
+}
+
+.nav__link--wip {
+  opacity: 0.6;
+}
+
+.link__text {
+  display: inline-block;
   font-size: 1rem;
   color: #eee;
   border-bottom: 1px solid #222;
@@ -84,42 +105,27 @@ body {
 
 .nav__icon {
   padding: 1rem;
+  color: white;
 }
-
-.nav li a:before {
-  font: 1rem;
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-}
-
-/* .nav li:nth-child(1) a:before { content: '\f00a'; }
-.nav li:nth-child(2) a:before { content: '\f012'; }
-.nav li:nth-child(3) a:before { content: '\f061'; }
-.nav li:nth-child(4) a:before { content: '\f0c3'; }
-.nav li:nth-child(5) a:before { content: '\f022'; }
-.nav li:nth-child(6) a:before { content: '\f115'; }
-.nav li:nth-child(7) a:before { content: '\f085'; }
-.nav li:nth-child(8) a:before { content: '\f023'; left: 23px; }
- */
-.nav li a:hover {
-  background: #444;
-}
-
-.nav li a.active {
-  box-shadow: inset 5px 0 0 #5b5, inset 6px 0 0 #222;
-  background: #444;
-}
-
-
 
 .blend--red {
   background-color: red !important;
   background-blend-mode: multiply;
 }
 
-
 .row--actions {
   lost-column: 1/1;
 }
 
+
+.component__container {
+
+}
+
+.component__itself {
+
+}
+
+.component__docs {
+
+}

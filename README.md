@@ -74,12 +74,13 @@ TODO
 - touch enabled
 - sample color, loading, then animate
 - try Scorekeeper layout
-
+- adapt carousel: http://codepen.io/electerious/pen/JXNEPr
 
 
 LATER
 -------
 
+- improve card close
 - remove time scaling from card timeline 1, embed into timings.
 - wave pulse across card container
 - email oleg: motion trail line?

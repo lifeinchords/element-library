@@ -11,38 +11,41 @@
     <link rel="stylesheet" href="css/mq.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/card.css">
-    <link rel="stylesheet" href="css/iconfont-imports.css">
+    <link rel="stylesheet" href="../app/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="sidebar">
-      <div class="title">Components</div>
       <ul class="nav">
-        <li><a class="nav__link"><span data-text="sweden" class="nav__icon entypo-sweden"></span><span>Cards</span></a></li>
-        <li><a class="nav__link nav__link--wip"><span data-text="sweden" class="nav__icon entypo-sweden"></span><span>Stacks</span></a></li>
-        <li><a class="nav__link nav__link--wip"><span data-text="sweden" class="nav__icon entypo-sweden"></span><span>Buttons</span></a></li>
-        <li><a class="nav__link nav__link--wip"><span data-text="sweden" class="nav__icon entypo-sweden"></span><span>Avatars</span></a></li>
-        <li><a class="nav__link nav__link--wip"><span data-text="fontawesome-dashboard" class="nav__icon fontawesome-dashboard"></span><span>Dashboard</span></a></li>
-        <li><a class="nav__link nav__link--wip"><span data-text="fontawesome-dashboard" class="nav__icon fontawesome-dashboard"></span><span>Loading</span></a></li>
-        <li><a class="nav__link nav__link--wip"><span data-text="fontawesome-tags" class="nav__icon fontawesome-tags"></span><span>Tags</span></a></li>
-        <li><a class="nav__link nav__link--wip"><span data-text="fontawesome-comment" class="nav__icon fontawesome-comment"></span><span>Comments</span></a></li>
-        <li><a class="nav__link nav__link--wip"><span data-text="fontawesome-bell" class="nav__icon fontawesome-bell"></span><span>Notifications</span></a></li>
+        <li><a class="nav__link"><i class="nav__icon mdi mdi-view-stream"></i>
+            <div class="link__text">Cards</div></a></li>
+        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-layers"></i>
+            <div class="link__text">Stacks</div></a></li>
+        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-gauge"></i>
+            <div class="link__text">Gauges</div></a></li>
+        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-tag-text-outline"></i>
+            <div class="link__text">Tags</div></a></li>
+        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-bell"></i>
+            <div class="link__text">Loading</div></a></li>
+        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-message-text"></i>
+            <div class="link__text">Messages</div></a></li>
+        <li><a class="nav__link nav__link--wip"><i class="nav__icon mdi mdi-bullhorn"></i>
+            <div class="link__text">Alerts</div>
+            </a></li>
       </ul>
     </div>
-    <div class="content"><a class="button"></a>
+    <div class="content"><a class="lsg__button--menu"><i class="mdi mdi-menu menu__icon"></i></a>
       <div class="row--actions">
-        <div class="card__button card__button--open">Open</div>
-        <div class="card__button card__button--close">Close</div>
+        <div class="lsg__button--ui lsg__button--open"><i class="mdi mdi-ray-start-arrow"></i><span>Open</span></div>
+        <div class="lsg__button--ui lsg__button--close"><i class="mdi mdi-ray-end-arrow"></i><span>Close</span></div>
       </div>
-      <div class="card component card--one color--dark">
-        <h3 class="card__title">theo jens</h3><img src="http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg" class="card__image">
-      </div>
-      <div class="card component card--two color--light">
-        <h3 class="card__title">ashley mackenzie</h3><img src="http://static.tumblr.com/4142f99c88c3f2a7cf65dbb32d889e74/ydhfeo0/Zrmo2ltwk/tumblr_static_21w21rfvvr284wsssc4k4gs8w.jpg" class="card__image">
-      </div>
-      <div class="card component card--three color--light">
-        <h3 class="card__title">jeremy mann</h3><img src="http://grimoire-c-mag.com/wp-content/uploads/2015/02/Grimoire-C-Magazine-JEREMY-MANN-5.jpg" class="card__image">
+      <div class="component__container">
+        <div class="card component card--one color--dark">
+          <h3 class="card__title">theo jens</h3><img src="http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg" class="card__image">
+        </div>
+        <div class="component__docs"><i class="nav__icon mdi mdi-code-braces"></i></div>
       </div>
     </div>
     <div class="breakpoint-helper"></div>
@@ -51,7 +54,9 @@
   <script src="../app/verge/verge.js"></script>
   <script src="../app/gsap/src/uncompressed/TweenMax.js"></script>
   <script src="../app/fastclick/lib/fastclick.js"></script>
-  
+  <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
   <script src="../js/response.js"></script>
+  <script src="../js/cubicBezier.js"></script>
   <script src="../js/main.js"></script>
 </html>
