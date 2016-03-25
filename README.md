@@ -67,19 +67,27 @@ TODO
 
 - secondary animation for card?
 
+- cycle stagger tags: https://www.youtube.com/watch?v=0HhjSPVuRHA
+
 - what does weight mean for card content and how does it affect card behavior?
 
 - combine mo.js with gsap cycle: https://www.youtube.com/watch?v=0HhjSPVuRHA
 - add bpoint css helper
 - touch enabled
 - sample color, loading, then animate
+
 - try Scorekeeper layout
+
 - adapt carousel: http://codepen.io/electerious/pen/JXNEPr
 
 
 LATER
 -------
 
+- blend mode
+- SVG image mask experiments
+
+- when menu is open, dont allow interaction on main page
 - improve card close
 - remove time scaling from card timeline 1, embed into timings.
 - wave pulse across card container
@@ -159,3 +167,34 @@ http://greensock.com/forums/topic/11221-tweening-properties-using-calc/?hl=calc+
 
 
 http://highlightjs.readthedocs.org/en/latest/building-testing.html
+
+
+
+UI ANIMATION 
+----------
+
+http://codepen.io/osublake/pen/OyPGEo - greensock ease visualizer in codepen
+http://codepen.io/jonathan/pen/EVXgGV - like mo.js property curves, bouncing ball
+http://codepen.io/sol0mka/pen/c7b99f1a216498818cbb9f0c881fc542
+https://www.youtube.com/watch?v=tZCQFnQscrc
+https://www.youtube.com/watch?v=sXqXpwyBI1k
+
+http://www.provideocoalition.com/secondary-action-in-after-effects/ 
+https://classes.soe.ucsc.edu/cmps160/Spring05/p35-lasseter.pdf
+
+
+
+
+COMPONENT LIBS
+---------
+http://getbase.org/docs/
+http://ink.sapo.pt/ui-elements/navigation/
+http://getmdl.io/components/index.html#cards-section
+https://elements.polymer-project.org/elements/marked-element?active=marked-element&view=demo:demo/index.html
+
+
+
+
+
+
+

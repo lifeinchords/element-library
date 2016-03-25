@@ -1,12 +1,11 @@
 "use strict"; 
 
 $(document).ready(function () {
+  console.log('ready');
 
   // setting up syntax highlighting for element documentation
   hljs.initHighlightingOnLoad();
 
-
-  console.log('ready');
 
   // ****************** SETUP ********************
   Response.create({
@@ -154,18 +153,19 @@ $(document).ready(function () {
 
     // .play     ()
 
-  $('.lsg__button--enter').on('click', function(){
+  $('.button--enter').on('click', function(){
     timeline.timeScale( 1.5 );
     timeline.play();
   })
 
-  $('.lsg__button--exit').on('click', function(){
+  $('.button--exit').on('click', function(){
     timeline.timeScale( 2 );
     timeline.reverse();
+    window.enviro.stop();
   })
 
   // off-canvas menu adapted from: http://codepen.io/oknoblich/pen/klnjw
-  $('.lsg__button--menu').on('click', function() {
+  $('.button--menu').on('click', function() {
     $('.content').toggleClass('is-enter');
   });
 
@@ -210,4 +210,111 @@ $(document).ready(function () {
 
 
 });
+
+/*
+
+          ////////////////////////
+
+
+          // closing the gate, shuts off sound
+          window.drySineToneSynth.set({
+            "tone1.mul.gate": 0
+          });
+
+                // open gate to let sound through
+      window.drySineToneSynth.set({
+        "tone1.mul.gate": 1
+      });
+
+          ////////////////////////
+
+
+                // closing the gate, shuts off sound
+          window.boringSineToneSynth.set({
+            "tone1.mul.gate": 0
+          });
+
+
+      // open gate to let sound through
+      window.boringSineToneSynth.set({
+        "tone1.mul.gate": 1
+      });
+
+
+///////////////////////
+
+          // closing the gate, shuts off sound
+          // per voice
+          window.coldFuzzySynth.set({
+            "pinkNoise.mul.gate": 0,
+            "tone1.mul.gate": 0,
+            "tone2.mul.gate": 0,
+            "tone2-1.mul.gate": 0,
+            "tone3.mul.gate": 0,
+            "tone3-1.mul.gate": 0,
+            "tone4.mul.gate": 0,
+            "tone5.mul.gate": 0,
+            "tone6.mul.gate": 0
+          });
+
+                    // OQ: why doesnt this work?
+          // closing the gate on the instrument to shuts off sound
+          // window.coldFuzzySynth.set({
+          //   "instrument.gate": 0
+          // });
+
+
+
+
+
+      // OQ: if I enable all the gates in each voice in the synthdef, and use this
+      // to open the gate on the *instrument (the sum)
+      // why doesnt it work?
+      // window.coldFuzzySynth.set({
+      //   "instrument.gate": 1
+      // });
+
+      // instead, I need to do open each voice's gate individually
+      // to let sound through
+      window.coldFuzzySynth.set({
+        "pinkNoise.mul.gate": 1,
+        "tone1.mul.gate": 1,
+        "tone2.mul.gate": 1,
+        "tone2-1.mul.gate": 1,
+        "tone3.mul.gate": 1,
+        "tone3-1.mul.gate": 1,
+        "tone4.mul.gate": 1,
+        "tone5.mul.gate": 1,
+        "tone6.mul.gate": 1
+      });
+
+
+
+
+          ////////////////////////
+
+        // onUpdate: function (progress) {
+        //   var extremeInOutProgress = scaleCurve6(progress);
+
+        //   // multiplying by constant for now
+        //   // TODO: map from 20hz to 20k hz, since progress outputs values between 0 and 1
+        //   // var newFreq = extremeInOutProgress * 10000;
+        //   // console.log(newFreq);
+        //   // window.coldFuzzySynth.set("tone1.freq", newFreq);   // update the freq in this frame
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -21,10 +21,6 @@ html(lang='en')
     link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300', rel='stylesheet', type='text/css')
 
-
-
-
-
   body
 
     .sidebar
@@ -77,18 +73,18 @@ html(lang='en')
 
     .content
 
-      a.lsg__button--menu
+      a.button--menu
         i.mdi.mdi-menu.menu__icon
 
       .element__group
         .element__actions
           h1.comp__title Single Card
           h2 2.5 beats
-          .lsg__button--ui.lsg__button--enter
+          .button--ui.button--enter
             i.mdi.mdi-ray-start-arrow
             span Enter
 
-          .lsg__button--ui.lsg__button--exit
+          .button--ui.button--exit
             i.mdi.mdi-ray-end-arrow
             span Exit
 
@@ -121,11 +117,13 @@ html(lang='en')
     .breakpoint-helper
 
   //- bower downloaded. manually referenced
-  script(src='../app/jquery/dist/jquery.slim.js')
+  script(src='../app/jquery/dist/jquery.js')
   script(src='../app/verge/verge.js')
   script(src='../app/gsap/src/uncompressed/TweenMax.js')
   script(src='../app/fastclick/lib/fastclick.js')
   script(src='../app/highlightjs/highlight.pack.js')
+  script(src='../app/teoria/teoria.js')
+  script(src='../app/flocking/dist/flocking-no-jquery.min.js')
 
   //- via CDN
   script(src='http://cdn.jsdelivr.net/mojs/latest/mo.min.js')
@@ -137,6 +135,7 @@ html(lang='en')
   script(src='../js/cubicBezier.js')
 
   //- app
+  script(src='../js/flockingDefinitions.js')
   script(src='../js/main.js')
 
 
