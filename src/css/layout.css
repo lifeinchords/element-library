@@ -103,16 +103,41 @@ body {
   background-blend-mode: multiply;
 }
 
-.row--actions {
+.element__group {
+  lost-flex-container: row; 
+}
+
+.element__actions {
   lost-column: 1/1;
 }
 
-.row--element {
+.element__container {
+
+  @media ($sm) { 
+    lost-column: 4/4; 
+  }
+ 
+  @media ($md) { 
+    lost-column: 4/6; 
+    lost-offset: -1/6; 
+  }
+ 
+  @media ($lg) { 
+    lost-column: 12/20; 
+    lost-offset: -4/20; 
+  }
+ 
+  @media ($xl) { 
+    lost-column: 14/32; 
+    lost-offset: -9/32; 
+  }
+
   min-height: 30rem;  
+
 }
 
-.row--docs {
-  lost-flex-container: column; 
+.element__docs {
+  lost-flex-container: row; 
 }
 
 .col--half {

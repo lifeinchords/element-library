@@ -154,4 +154,8 @@ https://github.com/morishitter/postcss-style-guide
 BREAKPOINTS
 --------
 http://firedev.com/posts/2016/sane-breakpoints   good viz
+http://greensock.com/forums/topic/8101-tweening-css-xy-values-with-percentages/
+http://greensock.com/forums/topic/11221-tweening-properties-using-calc/?hl=calc+width#entry45911
 
+
+http://highlightjs.readthedocs.org/en/latest/building-testing.html

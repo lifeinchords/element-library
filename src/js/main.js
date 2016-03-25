@@ -112,7 +112,7 @@ $(document).ready(function () {
   });
       
   var cardHeightPx = 400;
-  var cardWidthPx = 500;
+  var cardWidthPx = "100%";
 
   timeline
 
