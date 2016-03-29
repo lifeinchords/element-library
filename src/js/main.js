@@ -90,13 +90,39 @@ $(document).ready(function () {
   var isAnimating;
 
   var timelineStart = function () {
-    // console.log('morphEnter: timelineStart ...');
+    console.log('morphEnter: timelineStart ...');
+
     // disableScrolling();
+
+    // open gate to let sound through
+    window.drySineToneSynth.set({
+      "tone1.mul.gate": 1
+    });
+
     isAnimating = true;
   };
 
+  var timelineUpdate = function () {
+    console.log('morphUpdate: timelineUpdate: ',  $(this).css.height );
+
+    // multiplying by constant for now
+    // TODO: map from 20hz to 20k hz, since progress outputs values between 0 and 1
+    var newFreq = $(".card").height() * 1000;
+    console.log(newFreq);
+    window.drySineToneSynth.set("tone1.freq", newFreq);   // update the freq in this frame
+
+    isAnimating = true;
+  };
+
+
   var timelineDone = function () {
-    // console.log('morphExit: timelineDone ...');
+    console.log('morphExit: timelineDone ...');
+
+    // closing the gate, shuts off sound
+    window.drySineToneSynth.set({
+      "tone1.mul.gate": 0
+    });
+
     // enableScrolling();
     isAnimating = false;
     // injectEmbeds();
@@ -106,6 +132,8 @@ $(document).ready(function () {
   var timeline = new TimelineMax({
     onStart: timelineStart,
     onComplete: timelineDone,
+    onUpdate: timelineUpdate,
+    // onUpdateParams: [ $card ],
     paused: true,
     force3D: true
   });
@@ -121,12 +149,23 @@ $(document).ready(function () {
     // .fromTo   ( $card, 0.2, { width: 2, height: 0 }, { width: 2, height: cardHeightPx, ease: Power4.easeOut }  ) 
     // .fromTo   ( $card, 0.3, { width: 2, height: cardHeightPx }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, immediateRender: false }, "+=0.15" ) 
 
-    // enter from center left -> center right
-    .fromTo   ( $card, 0.2, { width: 2, height: 0, y: cardHeightPx/2 }, { width: cardWidthPx, height: 2, ease: Power4.easeOut }  ) 
+    .fromTo   ( 
+      $card, 
+      0.2, 
+      { width: 2, height: 0, y: cardHeightPx/2 }, 
+      { width: cardWidthPx, height: 2, ease: Power4.easeOut },
+      "left-to-right"
+    ) 
     
-    // enter to top + bottom edges
-    .fromTo   ( $card, 0.20, { width: cardWidthPx, height: 2, y: cardHeightPx/2, scale: 1 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, "+=0.4" ) 
-    .to       ( $card, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25" ) 
+    .fromTo   ( 
+      $card, 0.20, 
+      { width: cardWidthPx, height: 2, y: cardHeightPx/2, scale: 1 }, 
+      { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
+      "+=0.4", // position 
+      "top-to-bottom"
+    ) 
+
+    .to       ( $card, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
 
     // enter to top + bottom edges. Alternate 1: with extra beat
     // .fromTo   ( $card, 0.2, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
@@ -154,15 +193,20 @@ $(document).ready(function () {
     // .play     ()
 
   $('.button--enter').on('click', function(){
+
     timeline.timeScale( 1.5 );
     timeline.play();
   })
 
   $('.button--exit').on('click', function(){
+
     timeline.timeScale( 2 );
     timeline.reverse();
-    window.enviro.stop();
   })
+
+  $('.button--panic').on("click", function(){
+    window.enviro.stop();
+  });
 
   // off-canvas menu adapted from: http://codepen.io/oknoblich/pen/klnjw
   $('.button--menu').on('click', function() {
@@ -210,22 +254,7 @@ $(document).ready(function () {
 
 
 });
-
 /*
-
-          ////////////////////////
-
-
-          // closing the gate, shuts off sound
-          window.drySineToneSynth.set({
-            "tone1.mul.gate": 0
-          });
-
-                // open gate to let sound through
-      window.drySineToneSynth.set({
-        "tone1.mul.gate": 1
-      });
-
           ////////////////////////
 
 
@@ -291,16 +320,6 @@ $(document).ready(function () {
 
 
 
-          ////////////////////////
-
-        // onUpdate: function (progress) {
-        //   var extremeInOutProgress = scaleCurve6(progress);
-
-        //   // multiplying by constant for now
-        //   // TODO: map from 20hz to 20k hz, since progress outputs values between 0 and 1
-        //   // var newFreq = extremeInOutProgress * 10000;
-        //   // console.log(newFreq);
-        //   // window.coldFuzzySynth.set("tone1.freq", newFreq);   // update the freq in this frame
 
 
 */
