@@ -43,6 +43,8 @@ body {
   background: #9E9D9D;
   color: #ECECEC;
   cursor: pointer;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 
   &:hover {
     opacity: 0.8;
@@ -50,13 +52,15 @@ body {
 }
 
 .menu__icon {
-  font-size: 1.6rem;
+  font-size: 1.6rem !important; /* overriding mdi library default */
+  margin: 1rem 0.25rem 0 1rem;
   color: white;
   cursor: pointer;
 }
 
 .comp__title {
   color: #C8C8C8;
+  margin: 0 0 1rem 0;
 }
 
 .sidebar__title {
@@ -82,7 +86,10 @@ body {
 }
 
 .nav__link--wip {
-  opacity: 0.6;
+  opacity: 0.4;
+
+  /* account for visual weight of icons */
+  .mdi { opacity: 0.3; } 
 }
 
 .link__text {
@@ -101,11 +108,15 @@ body {
 }
 
 .element__group {
-  lost-flex-container: row; 
+  /* TODO: replace with flex centering */
+  text-align: center;
+
+  margin: 1rem 0 0 0;
 }
 
 .element__actions {
-  lost-column: 1/1;
+  background: #303A55;
+  padding: 1rem;
 }
 
 .element__container {

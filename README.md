@@ -65,7 +65,8 @@ TODO
 - try FM in flocking. Look at sound example from mags.
 - polygon shape avatars, layout like documentary mag
 
-- secondary animation for card?
+- secondary animation for card? 
+- curved path with Greensock Bezier + SVG morph
 
 - cycle stagger tags: https://www.youtube.com/watch?v=0HhjSPVuRHA
 

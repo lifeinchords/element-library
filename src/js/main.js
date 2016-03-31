@@ -6,8 +6,9 @@ $(document).ready(function () {
   // setting up syntax highlighting for element documentation
   hljs.initHighlightingOnLoad();
 
-
+  /* 
   // ****************** SETUP ********************
+  // TODO: extract this out to sep init function
   Response.create({
     // "width" "device-width" "height" "device-height" or "device-pixel-ratio"
     prop: "width",
@@ -32,6 +33,8 @@ $(document).ready(function () {
   Response.crossover('width', function() {
     console.log("switching bpoints")
   })
+
+  */
 
   // ****************** UTILS ********************
   // Adapted from Make Parallels:
@@ -99,17 +102,48 @@ $(document).ready(function () {
       "tone1.mul.gate": 1
     });
 
+    // window.coldFuzzySynth.set({
+    //   "pinkNoise.mul.gate": 1,
+    //   "tone1.mul.gate": 1,
+    //   "tone2.mul.gate": 1,
+    //   "tone2-1.mul.gate": 1,
+    //   "tone3.mul.gate": 1,
+    //   "tone3-1.mul.gate": 1,
+    //   "tone4.mul.gate": 1,
+    //   "tone5.mul.gate": 1,
+    //   "tone6.mul.gate": 1
+    // });
+
+    // OQ: if I enable all the gates in each voice in the synthdef, and use this
+    // to open the gate on the *instrument (the sum)
+    // why doesnt it work?
+    // window.coldFuzzySynth.set({
+    //   "instrument.gate": 1
+    // });
+
     isAnimating = true;
   };
 
   var timelineUpdate = function () {
-    console.log('morphUpdate: timelineUpdate: ',  $(this).css.height );
+    // console.log('morphUpdate: timelineUpdate: ',  $(this).css.height );
 
-    // multiplying by constant for now
     // TODO: map from 20hz to 20k hz, since progress outputs values between 0 and 1
-    var newFreq = $(".card").height() * 1000;
+    var newFreq = ($(".card").height() + 400);
     console.log(newFreq);
+
     window.drySineToneSynth.set("tone1.freq", newFreq);   // update the freq in this frame
+   
+    // window.coldFuzzySynth.set({
+    //   "pinkNoise.mul.gate": 1,
+    //   "tone1.freq": newFreq,
+    //   "tone2.freq": newFreq,
+    //   "tone2-1.freq": newFreq,
+    //   "tone3.freq": newFreq,
+    //   "tone3-1.freq": newFreq,
+    //   "tone4.freq": newFreq,
+    //   "tone5.freq": newFreq,
+    //   "tone6.freq": newFreq
+    // });
 
     isAnimating = true;
   };
@@ -121,6 +155,20 @@ $(document).ready(function () {
     // closing the gate, shuts off sound
     window.drySineToneSynth.set({
       "tone1.mul.gate": 0
+    });
+
+    // closing the gate, shuts off sound
+    // per voice
+    window.coldFuzzySynth.set({
+      "pinkNoise.mul.gate": 0,
+      "tone1.mul.gate": 0,
+      "tone2.mul.gate": 0,
+      "tone2-1.mul.gate": 0,
+      "tone3.mul.gate": 0,
+      "tone3-1.mul.gate": 0,
+      "tone4.mul.gate": 0,
+      "tone5.mul.gate": 0,
+      "tone6.mul.gate": 0
     });
 
     // enableScrolling();
@@ -254,76 +302,6 @@ $(document).ready(function () {
 
 
 });
-/*
-          ////////////////////////
-
-
-                // closing the gate, shuts off sound
-          window.boringSineToneSynth.set({
-            "tone1.mul.gate": 0
-          });
-
-
-      // open gate to let sound through
-      window.boringSineToneSynth.set({
-        "tone1.mul.gate": 1
-      });
-
-
-///////////////////////
-
-          // closing the gate, shuts off sound
-          // per voice
-          window.coldFuzzySynth.set({
-            "pinkNoise.mul.gate": 0,
-            "tone1.mul.gate": 0,
-            "tone2.mul.gate": 0,
-            "tone2-1.mul.gate": 0,
-            "tone3.mul.gate": 0,
-            "tone3-1.mul.gate": 0,
-            "tone4.mul.gate": 0,
-            "tone5.mul.gate": 0,
-            "tone6.mul.gate": 0
-          });
-
-                    // OQ: why doesnt this work?
-          // closing the gate on the instrument to shuts off sound
-          // window.coldFuzzySynth.set({
-          //   "instrument.gate": 0
-          // });
-
-
-
-
-
-      // OQ: if I enable all the gates in each voice in the synthdef, and use this
-      // to open the gate on the *instrument (the sum)
-      // why doesnt it work?
-      // window.coldFuzzySynth.set({
-      //   "instrument.gate": 1
-      // });
-
-      // instead, I need to do open each voice's gate individually
-      // to let sound through
-      window.coldFuzzySynth.set({
-        "pinkNoise.mul.gate": 1,
-        "tone1.mul.gate": 1,
-        "tone2.mul.gate": 1,
-        "tone2-1.mul.gate": 1,
-        "tone3.mul.gate": 1,
-        "tone3-1.mul.gate": 1,
-        "tone4.mul.gate": 1,
-        "tone5.mul.gate": 1,
-        "tone6.mul.gate": 1
-      });
-
-
-
-
-
-
-*/
-
 
 
 
