@@ -162,21 +162,24 @@ $(document).ready(function () {
       
   cards[1].timeline
 
-    .fromTo   ( 
+    .to   ( 
       cards[1].$element, 
       0.2, 
-      { width: 2, height: 0, y: cards[1].height / 2 },  // from
-      { width: cards[1].width, height: 2, ease: Power4.easeOut }, // to
-      "left-to-right" // label
+      { 
+        width: cards[1].width, 
+        height: cards[1].height = 400, 
+        ease: Power4.easeOut,
+        transformOrigin:'0% 0%' 
+      }
     ) 
     
-    .fromTo   ( 
-      cards[1].$element, 0.20, 
-      { width: cards[1].width, height: 2, y: cards[1].height / 2, scale: 1 }, 
-      { width: cards[1].width, height: cards[1].height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
-      "+=0.4", // position 
-      "top-to-bottom" // label
-    ) 
+    // .fromTo   ( 
+    //   cards[1].$element, 0.20, 
+    //   { width: cards[1].width, height: 2, y: cards[1].height / 2, scale: 1 }, 
+    //   { width: cards[1].width, height: cards[1].height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
+    //   "+=0.4", // position 
+    //   "top-to-bottom" // label
+    // ) 
 
     .to       ( cards[1].$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
     .to       ( cards[1].$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 

@@ -8,7 +8,9 @@ html, body {
 }
 
 body {
+  /* for lost grid children, inside*/
   display: flex;
+
   overflow-x: hidden;
   min-height: 100%;
 }
@@ -106,7 +108,6 @@ body {
 .element__group {
   /* TODO: replace with flex centering */
   text-align: center;
-
   margin: 1rem 0 0 0;
 }
 
@@ -117,6 +118,13 @@ body {
 
 
 .element__container {
+
+  /* to center the children of the container, 
+     the component itself, the card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30rem;  
 
   @media ($sm) { 
     lost-column: 4/4; 
@@ -136,8 +144,6 @@ body {
     lost-column: 14/32; 
     lost-offset: -9/32; 
   }
-
-  min-height: 30rem;  
 
 }
 
