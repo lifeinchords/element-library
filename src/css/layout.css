@@ -58,10 +58,6 @@ body {
   cursor: pointer;
 }
 
-.comp__title {
-  color: #C8C8C8;
-  margin: 0 0 1rem 0;
-}
 
 .sidebar__title {
   line-height: 3rem;
@@ -119,6 +115,7 @@ body {
   padding: 1rem;
 }
 
+
 .element__container {
 
   @media ($sm) { 
@@ -146,6 +143,23 @@ body {
 
 .element__docs {
   lost-flex-container: row; 
+}
+
+.element__title,
+.element__subtitle {
+  color: #C8C8C8;
+  margin: 1rem 0;
+}
+
+.element__title {
+  font-size: 1.9rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+.element__subtitle {
+  font-size: 1.7rem;
+  letter-spacing: 0rem;
 }
 
 .col--half {
