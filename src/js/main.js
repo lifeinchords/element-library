@@ -6,7 +6,6 @@ $(document).ready(function () {
   // setting up syntax highlighting for element documentation
   hljs.initHighlightingOnLoad();
 
-
   // TODO: make init function
   $('.button--panic').on("click", function(){
     window.enviro.stop();
@@ -51,11 +50,12 @@ $(document).ready(function () {
 
   };
 
-  var timelineUpdate = function () {
-    // console.log('morphUpdate: timelineUpdate: ',  $(this).css.height );
+  var timelineUpdate = function ($element) {
+    console.log('morphUpdate: timelineUpdate: ',  $(this).css.height );
+    console.log('element: ',  $element );
 
     // TODO: map from 20hz to 20k hz, since progress outputs values between 0 and 1
-    var newFreq = (card.$element.height() + 400);
+    var newFreq = ($element.height() + 400);
     console.log(newFreq);
 
     window.drySineToneSynth.set("tone1.freq", newFreq);   // update the freq in this frame
@@ -97,114 +97,102 @@ $(document).ready(function () {
   };
 
   // ONE
-  var card = {};
-  card.$element = $('.element--one .card');
-  card.height = 400;
-  card.width = "100%";
+  cards[0] = {};
+  cards[0].$element = $('.element--one .card');
+  cards[0].height = 400;
+  cards[0].width = "100%";
 
-  card.timeline = new TimelineMax({
+  cards[0].timeline = new TimelineMax({
     onStart: timelineStart,
     onComplete: timelineDone,
     onUpdate: timelineUpdate,
-    // onUpdateParams: [ card.$element ],
+    onUpdateParams: [ cards[0].$element ],
     paused: true,
     force3D: true
   });
       
-  card.timeline
+  cards[0].timeline
 
     .fromTo   ( 
-      card.$element, 
+      cards[0].$element, 
       0.2, 
-      { width: 2, height: 0, y: card.height / 2 },  // from
-      { width: card.width, height: 2, ease: Power4.easeOut }, // to
+      { width: 2, height: 0, y: cards[0].height / 2 },  // from
+      { width: cards[0].width, height: 2, ease: Power4.easeOut }, // to
       "left-to-right" // label
     ) 
     
     .fromTo   ( 
-      card.$element, 0.20, 
-      { width: card.width, height: 2, y: card.height / 2, scale: 1 }, 
-      { width: card.width, height: card.height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
+      cards[0].$element, 0.20, 
+      { width: cards[0].width, height: 2, y: cards[0].height / 2, scale: 1 }, 
+      { width: cards[0].width, height: cards[0].height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
       "+=0.4", // position 
       "top-to-bottom" // label
     ) 
 
-    .to ( card.$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
-    .to ( card.$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
-    .to ( card.$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
+    .to ( cards[0].$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
+    .to ( cards[0].$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
+    .to ( cards[0].$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
 
   $('.element--one .button--enter').on('click', function(){
-
-    card.timeline.timeScale( 1.5 );
-    card.timeline.play();
+    cards[0].timeline.timeScale( 1.5 );
+    cards[0].timeline.play();
   })
 
   $('.element--one .button--exit').on('click', function(){
-
-    card.timeline.timeScale( 2 );
-    card.timeline.reverse();
+    cards[0].timeline.timeScale( 2 );
+    cards[0].timeline.reverse();
   })
 
-  cards.push = card;
-
-  //////////////////////////////////////////////////
-
-  card = null;
 
   //////////////////////////////////////////////////
   // TWO
-  card = {};
-  card.$element = $('.element--two .card');
-  card.height = 400;
-  card.width = "100%";
+  cards[1] = {};
+  cards[1].$element = $('.element--two .card');
+  cards[1].height = 400;
+  cards[1].width = "100%";
 
-  card.timeline = new TimelineMax({
+  cards[1].timeline = new TimelineMax({
     onStart: timelineStart,
     onComplete: timelineDone,
     onUpdate: timelineUpdate,
-    // onUpdateParams: [ card.$element ],
+    onUpdateParams: [ cards[1].$element ],
     paused: true,
     force3D: true
   });
       
-  card.timeline
+  cards[1].timeline
 
     .fromTo   ( 
-      card.$element, 
+      cards[1].$element, 
       0.2, 
-      { width: 2, height: 0, y: card.height / 2 },  // from
-      { width: card.width, height: 2, ease: Power4.easeOut }, // to
+      { width: 2, height: 0, y: cards[1].height / 2 },  // from
+      { width: cards[1].width, height: 2, ease: Power4.easeOut }, // to
       "left-to-right" // label
     ) 
     
     .fromTo   ( 
-      card.$element, 0.20, 
-      { width: card.width, height: 2, y: card.height / 2, scale: 1 }, 
-      { width: card.width, height: card.height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
+      cards[1].$element, 0.20, 
+      { width: cards[1].width, height: 2, y: cards[1].height / 2, scale: 1 }, 
+      { width: cards[1].width, height: cards[1].height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
       "+=0.4", // position 
       "top-to-bottom" // label
     ) 
 
-    .to       ( card.$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
-    .to       ( card.$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
-    .to       ( card.$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
+    .to       ( cards[1].$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
+    .to       ( cards[1].$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
+    .to       ( cards[1].$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
 
   $('.element--two .button--enter').on('click', function(){
 
-    card.timeline.timeScale( 1.5 );
-    card.timeline.play();
+    cards[1].timeline.timeScale( 1.5 );
+    cards[1].timeline.play();
   })
 
   $('.element--two .button--exit').on('click', function(){
 
-    card.timeline.timeScale( 2 );
-    card.timeline.reverse();
+    cards[1].timeline.timeScale( 2 );
+    cards[1].timeline.reverse();
   })
-
-  cards.push = card;
-
-
-
 
 });
 
