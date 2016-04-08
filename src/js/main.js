@@ -59,7 +59,7 @@ $(document).ready(function () {
 
   // card functions
   // var timeline = new TimelineMax();
-  var $card = $('.card--one');
+  var $card = $('.element--one .card');
 
   // var rectangle = verge.rectangle($card);
 
@@ -225,8 +225,8 @@ $(document).ready(function () {
     // .fromTo   ( $card, 0.2, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
     // .to        ( $card, 0.6, { scale: 1.1, ease: Back.easeOut.config(1.3)  }, "-=0.3" ) // delay it backwards by half the duration 
 
-    .to       ( ".card--one .card__image", 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
-    .to       ( ".card--one .card__title", 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
+    .to       ( ".element--one .card__image", 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
+    .to       ( ".element--one .card__title", 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
 
     // .call     ( scrollTop  )
 
@@ -240,13 +240,13 @@ $(document).ready(function () {
 
     // .play     ()
 
-  $('.button--enter').on('click', function(){
+  $('.element--one .button--enter').on('click', function(){
 
     timeline.timeScale( 1.5 );
     timeline.play();
   })
 
-  $('.button--exit').on('click', function(){
+  $('.element--one .button--exit').on('click', function(){
 
     timeline.timeScale( 2 );
     timeline.reverse();

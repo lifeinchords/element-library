@@ -54,6 +54,9 @@ To be sure, delete /dist
 TODO
 ------
 
+- 43 mins in: pipe Noise sample through granular synthesis for timbre, then through a comb filter for pitch
+https://www.youtube.com/watch?v=tvx_QgS7D8Q
+
 - add basic flocking, triggers single sample on squash
 
 - collection of cards, 4 up in L, 3 up in M, centered with flanking cards on XL. get vars from Lost calc
@@ -192,6 +195,8 @@ http://getbase.org/docs/
 http://ink.sapo.pt/ui-elements/navigation/
 http://getmdl.io/components/index.html#cards-section
 https://elements.polymer-project.org/elements/marked-element?active=marked-element&view=demo:demo/index.html
+
+
 
 
 
