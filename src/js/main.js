@@ -57,11 +57,12 @@ $(document).ready(function () {
     };
   };
 
-  // card functions
-  // var timeline = new TimelineMax();
-  var $card = $('.element--one .card');
+  var card = {};
+  card.$element = $('.element--one .card');
+  card.height = 400;
+  card.width = "100%";
 
-  // var rectangle = verge.rectangle($card);
+  // var rectangle = verge.rectangle(card.$element);
 
   // create and move placeholder white box into position, to where grid thumbnail currently sits
   // var $placeholder = $('<div>')
@@ -177,53 +178,49 @@ $(document).ready(function () {
     // $('.placeholder').remove();
   };
 
-  var timeline = new TimelineMax({
+  card.timeline = new TimelineMax({
     onStart: timelineStart,
     onComplete: timelineDone,
     onUpdate: timelineUpdate,
-    // onUpdateParams: [ $card ],
+    // onUpdateParams: [ card.$element ],
     paused: true,
     force3D: true
   });
       
-  var cardHeightPx = 400;
-  var cardWidthPx = "100%";
-
-  timeline
-
-    // .set      ( $card, { autoAlpha: 1, opacity: 1 })
+  card.timeline
+    // .set      ( card.$element, { autoAlpha: 1, opacity: 1 })
 
     // enter from top left -> bottom left -> wipe right 
-    // .fromTo   ( $card, 0.2, { width: 2, height: 0 }, { width: 2, height: cardHeightPx, ease: Power4.easeOut }  ) 
-    // .fromTo   ( $card, 0.3, { width: 2, height: cardHeightPx }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, immediateRender: false }, "+=0.15" ) 
+    // .fromTo   ( card.$element, 0.2, { width: 2, height: 0 }, { width: 2, height: card.height, ease: Power4.easeOut }  ) 
+    // .fromTo   ( card.$element, 0.3, { width: 2, height: card.height }, { width: card.width, height: card.height, ease: Power4.easeOut, immediateRender: false }, "+=0.15" ) 
 
     .fromTo   ( 
-      $card, 
+      card.$element, 
       0.2, 
-      { width: 2, height: 0, y: cardHeightPx/2 }, 
-      { width: cardWidthPx, height: 2, ease: Power4.easeOut },
+      { width: 2, height: 0, y: card.height / 2 }, 
+      { width: card.width, height: 2, ease: Power4.easeOut },
       "left-to-right"
     ) 
     
     .fromTo   ( 
-      $card, 0.20, 
-      { width: cardWidthPx, height: 2, y: cardHeightPx/2, scale: 1 }, 
-      { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
+      card.$element, 0.20, 
+      { width: card.width, height: 2, y: card.height / 2, scale: 1 }, 
+      { width: card.width, height: card.height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
       "+=0.4", // position 
       "top-to-bottom"
     ) 
 
-    .to       ( $card, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
+    .to       ( card.$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
 
     // enter to top + bottom edges. Alternate 1: with extra beat
-    // .fromTo   ( $card, 0.2, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
-    // .to       ( $card, 0.2, { scale: 0.99, ease: Power4.easeIn  }, "+=0.05" ) 
-    // .to       ( $card, 0.1, { scale: 1.02, ease: Power4.easeIn  }, "+=0.25" ) 
-    // .to       ( $card, 0.2, { scale: 1, ease: Circ.easeOut  }, "+=0.15" ) 
+    // .fromTo   ( card.$element, 0.2, { width: card.width, height: 2, y: card.height/2 }, { width: card.width, height: card.height, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
+    // .to       ( card.$element, 0.2, { scale: 0.99, ease: Power4.easeIn  }, "+=0.05" ) 
+    // .to       ( card.$element, 0.1, { scale: 1.02, ease: Power4.easeIn  }, "+=0.25" ) 
+    // .to       ( card.$element, 0.2, { scale: 1, ease: Circ.easeOut  }, "+=0.15" ) 
 
     // enter to top + bottom edges. Alternate 2: using Back. More fluid, but less control.
-    // .fromTo   ( $card, 0.2, { width: cardWidthPx, height: 2, y: cardHeightPx/2 }, { width: cardWidthPx, height: cardHeightPx, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
-    // .to        ( $card, 0.6, { scale: 1.1, ease: Back.easeOut.config(1.3)  }, "-=0.3" ) // delay it backwards by half the duration 
+    // .fromTo   ( card.$element, 0.2, { width: card.width, height: 2, y: card.height/2 }, { width: card.width, height: card.height, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
+    // .to        ( card.$element, 0.6, { scale: 1.1, ease: Back.easeOut.config(1.3)  }, "-=0.3" ) // delay it backwards by half the duration 
 
     .to       ( ".element--one .card__image", 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
     .to       ( ".element--one .card__title", 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
@@ -233,8 +230,8 @@ $(document).ready(function () {
     // .call     ( showAndWireCloseProject )
 
     // run together
-    // .to       ( $card, 0.2, { height: 0 }) 
-    // .to       ( $card, 0.18, { height: 0 }, "=-0.2") 
+    // .to       ( card.$element, 0.2, { height: 0 }) 
+    // .to       ( card.$element, 0.18, { height: 0 }, "=-0.2") 
     // .fromTo   ( $projectContent.find('.content__title'), 0.18,{ opacity: 0, scaleY: 0.4 }, { opacity: 1, scaleY: 1, transformOrigin: "0 100%" } , "=+0.05" ) 
     // .fromTo   ( $projectContent.find('.meta__date'), 0.18,{ opacity: 0, scaleY: 0.4 }, { opacity: 1, scaleY: 1, transformOrigin: "0 100%" }, "=-0.18")
 
@@ -242,14 +239,14 @@ $(document).ready(function () {
 
   $('.element--one .button--enter').on('click', function(){
 
-    timeline.timeScale( 1.5 );
-    timeline.play();
+    card.timeline.timeScale( 1.5 );
+    card.timeline.play();
   })
 
   $('.element--one .button--exit').on('click', function(){
 
-    timeline.timeScale( 2 );
-    timeline.reverse();
+    card.timeline.timeScale( 2 );
+    card.timeline.reverse();
   })
 
   $('.button--panic').on("click", function(){
