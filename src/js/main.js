@@ -6,36 +6,6 @@ $(document).ready(function () {
   // setting up syntax highlighting for element documentation
   hljs.initHighlightingOnLoad();
 
-  /* 
-  // ****************** SETUP ********************
-  // TODO: extract this out to sep init function
-  Response.create({
-    // "width" "device-width" "height" "device-height" or "device-pixel-ratio"
-    prop: "width",
-
-     // the prefix(es) for your data attributes (aliases are optional)
-    // prefix: "min-width- r src",
-    prefix: "min-width-",
-
-    // min breakpoints. Needs to match what's in mq.css
-    // $sm: (width >= 0rem);
-    // $md: (width >= 20rem);
-    // $lg: (width >= 60rem);
-    // $xl: (width >= 90rem);
-
-    // in pixels. Multiply rems x 16(base font size in px)
-    breakpoints: [1, 576, 960, 1440],
-
-    // optional param - data attr contents lazyload rather than whole page at once
-    lazy: true 
-  });
-
-  Response.crossover('width', function() {
-    console.log("switching bpoints")
-  })
-
-  */
-
   // ****************** UTILS ********************
   // Adapted from Make Parallels:
   // https://github.com/parallelsio/core-modules/blob/3f42c79fced7a52258a982f1a9d78ccf4f422eea/meteor-app/lib/utilities.js
@@ -61,37 +31,6 @@ $(document).ready(function () {
   card.$element = $('.element--one .card');
   card.height = 400;
   card.width = "100%";
-
-  // var rectangle = verge.rectangle(card.$element);
-
-  // create and move placeholder white box into position, to where grid thumbnail currently sits
-  // var $placeholder = $('<div>')
-  //   .addClass('placeholder')
-  //   .prependTo(".page__home");
-
-  // var fromVars = {
-  //   width: rectangle.width,
-  //   height: rectangle.height,
-  //   x: rectangle.left,
-  //   y: rectangle.top + verge.scrollY(),
-  // };
-
-  // var toVars = {
-  //   ease: Power4.easeOut,
-  //   x: 0,
-  //   y: 0,
-
-  //   width: verge.viewportW(),
-
-  //   // http://ryanve.com/lab/dimensions/
-  //   height: Math.max(
-  //                 document.documentElement.clientHeight, 
-  //                 document.documentElement.offsetHeight, 
-  //                 document.documentElement.scrollHeight 
-  //               )
-  // };
-
-  var isAnimating;
 
   var timelineStart = function () {
     console.log('morphEnter: timelineStart ...');
@@ -197,8 +136,8 @@ $(document).ready(function () {
     .fromTo   ( 
       card.$element, 
       0.2, 
-      { width: 2, height: 0, y: card.height / 2 }, 
-      { width: card.width, height: 2, ease: Power4.easeOut },
+      { width: 2, height: 0, y: card.height / 2 },  // from
+      { width: card.width, height: 2, ease: Power4.easeOut }, // to
       "left-to-right"
     ) 
     
@@ -222,20 +161,9 @@ $(document).ready(function () {
     // .fromTo   ( card.$element, 0.2, { width: card.width, height: 2, y: card.height/2 }, { width: card.width, height: card.height, ease: Power4.easeOut, y: 0, immediateRender: false }, "+=0.4" ) 
     // .to        ( card.$element, 0.6, { scale: 1.1, ease: Back.easeOut.config(1.3)  }, "-=0.3" ) // delay it backwards by half the duration 
 
-    .to       ( ".element--one .card__image", 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
-    .to       ( ".element--one .card__title", 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
+    .to       ( card.$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
+    .to       ( card.$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
 
-    // .call     ( scrollTop  )
-
-    // .call     ( showAndWireCloseProject )
-
-    // run together
-    // .to       ( card.$element, 0.2, { height: 0 }) 
-    // .to       ( card.$element, 0.18, { height: 0 }, "=-0.2") 
-    // .fromTo   ( $projectContent.find('.content__title'), 0.18,{ opacity: 0, scaleY: 0.4 }, { opacity: 1, scaleY: 1, transformOrigin: "0 100%" } , "=+0.05" ) 
-    // .fromTo   ( $projectContent.find('.meta__date'), 0.18,{ opacity: 0, scaleY: 0.4 }, { opacity: 1, scaleY: 1, transformOrigin: "0 100%" }, "=-0.18")
-
-    // .play     ()
 
   $('.element--one .button--enter').on('click', function(){
 
@@ -257,45 +185,6 @@ $(document).ready(function () {
   $('.button--menu').on('click', function() {
     $('.content').toggleClass('is-enter');
   });
-
-  function showAndWireCloseProject (){
-
-    // $( closeCtrl ).show();
-
-    // closeCtrl.addEventListener('click', function() {
-      
-    //   // hideContent();
-    //   var params = {
-    //     pageType: "home",
-    //     projectName: "/"
-    //   }
-
-    //   setHistoryState(params);
-    // });
-
-    // // keyboard esc - hide content
-    // document.addEventListener('keydown', function(ev) {
-    //   if(!isAnimating && current !== -1) {
-    //     var keyCode = ev.keyCode || ev.which;
-       
-    //     if( keyCode === 27 ) {
-    //       ev.preventDefault();
-    //       if ("activeElement" in document)
-    //         document.activeElement.blur();
-
-    //         // hideContent();
-    //         var params = {
-    //           pageType: "home", 
-    //           projectName: "/"
-    //         }
-
-    //         setHistoryState(params);
-    //     }
-    //   }
-    // });
-
-  };
-
 
 
 });
