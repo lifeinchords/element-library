@@ -4,7 +4,9 @@ $(document).ready(function () {
   // console.log('ready');
 
   // setting up syntax highlighting for element documentation
-  hljs.initHighlightingOnLoad();
+  // hljs.initHighlightingOnLoad();
+
+  window.scrollTo(0, 0);
 
   // TODO: make init function
   $('.button--panic').on("click", function(){
@@ -148,9 +150,8 @@ $(document).ready(function () {
   // TWO
   cards[1] = {};
   cards[1].$element = $('.element--two .card');
-  cards[1].height = 400;
-  cards[1].width = "100%";
 
+  // TODO: better name. *Which timeline? ie, state 1
   cards[1].timeline = new TimelineMax({
     onStart: timelineStart,
     onComplete: timelineDone,
@@ -160,42 +161,73 @@ $(document).ready(function () {
     force3D: true
   });
       
+  // grow by 10%
+
   cards[1].timeline
 
-    .to   ( 
+    .fromTo ( 
       cards[1].$element, 
-      0.2, 
+      0.30, 
+
+      // y: 
       { 
-        width: cards[1].width, 
-        height: cards[1].height = 400, 
-        ease: Power4.easeOut,
-        transformOrigin:'0% 0%' 
-      }
+        width: 300, 
+        height: 240,
+        x: 0
+      },
+      { 
+        width: 380, 
+        height: 380, 
+        // x: -40, // if we turn off auto centering via CSS, need to account for the centering
+        ease: Power2.easeIn
+      },
+      "end1-start2"
     ) 
+
+
+    // .to ( cards[1].$element.find('.card__image'), 0.3, { scale: 1.3, ease: Power2.easeInOut }, "-=0.15"  ) 
+    .to ( cards[1].$element.find('.card__image'), 0.30, { height: 280, margin: 20, width: 340, ease: Power2.easeIn }, "-=0.30"  ) 
+    .to ( cards[1].$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "-=0.10"  ) 
     
-    // .fromTo   ( 
-    //   cards[1].$element, 0.20, 
-    //   { width: cards[1].width, height: 2, y: cards[1].height / 2, scale: 1 }, 
-    //   { width: cards[1].width, height: cards[1].height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
-    //   "+=0.4", // position 
-    //   "top-to-bottom" // label
-    // ) 
-
-    .to       ( cards[1].$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
-    .to       ( cards[1].$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
-    .to       ( cards[1].$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
-
   $('.element--two .button--enter').on('click', function(){
-
-    cards[1].timeline.timeScale( 1.5 );
     cards[1].timeline.play();
   })
 
   $('.element--two .button--exit').on('click', function(){
-
-    cards[1].timeline.timeScale( 2 );
     cards[1].timeline.reverse();
   })
+
+
+
+  //////////////////////////////////////////////////
+  // TODO: move to init function
+  var tlCards = new TimelineMax();
+
+  tlCards
+
+    // // position the cards in the center
+    // .set(
+    //   ".element--two .card",
+    //   {
+    //     // TODO: optimize and stores these vars to reduce calls
+    //     x: $(".element--two .card").width() / 2,
+    //     y: $(".element--two .card").height() / 2
+    //   }
+    // )
+      
+    // fade them in, along with thier content that's been marked for fade in
+    .staggerTo(
+      [ ".card", ".opacity--zero" ],
+      0.2, 
+      { 
+        opacity: 1, 
+        ease: Power2.easeInOut,
+        cycle: {
+          rotationX: "10%"
+        }
+      }
+    ) 
+  
 
 });
 

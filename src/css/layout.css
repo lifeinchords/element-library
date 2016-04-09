@@ -124,6 +124,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
   min-height: 30rem;  
 
   @media ($sm) { 
@@ -170,4 +171,8 @@ body {
 
 .col--half {
   lost-column: 1/2;
+}
+
+.opacity--zero {
+  opacity: 0;
 }

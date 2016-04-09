@@ -54,14 +54,16 @@ To be sure, delete /dist
 TODO
 ------
 
+- fix card one vertical centering
+
+- onclick, jump up, squash + stretch
+
 - 43 mins in: pipe Noise sample through granular synthesis for timbre, then through a comb filter for pitch
 https://www.youtube.com/watch?v=tvx_QgS7D8Q
 
-- add basic flocking, triggers single sample on squash
-
 - collection of cards, 4 up in L, 3 up in M, centered with flanking cards on XL. get vars from Lost calc
+- same size images
 
-- onclick, jump up, squash + stretch
 - loading ping
 - loading ping bounces to the left, turns into cutting intro line
 - motion trail line
@@ -157,25 +159,24 @@ https://github.com/simonsmith/postcss-property-lookup
 
 
 SG
------
+--------------------
 https://github.com/morishitter/postcss-style-guide
 
 
 
-
-BREAKPOINTS
---------
+BREAKPOINTS / RESPONSIVE / EQ's
+----------------------
 http://firedev.com/posts/2016/sane-breakpoints   good viz
 http://greensock.com/forums/topic/8101-tweening-css-xy-values-with-percentages/
 http://greensock.com/forums/topic/11221-tweening-properties-using-calc/?hl=calc+width#entry45911
-
-
 http://highlightjs.readthedocs.org/en/latest/building-testing.html
+
+http://www.sitepoint.com/responsive-web-components/
 
 
 
 UI ANIMATION 
-----------
+------------------------
 
 http://codepen.io/osublake/pen/OyPGEo - greensock ease visualizer in codepen
 http://codepen.io/jonathan/pen/EVXgGV - like mo.js property curves, bouncing ball

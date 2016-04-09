@@ -81,7 +81,7 @@ html(lang='en')
 
       //----------------------------//
 
-      .element__group.element--one.hidden
+      .element__group.element--one
 
         .element__actions
           h1.element__title Card
@@ -95,7 +95,7 @@ html(lang='en')
             span Exit
 
         .element__container
-          .card.card--quarter.color--dark
+          .card.card--quarter.opacity--zero.color--dark
             h3.card__title theo prins
             img.card__image(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
 
@@ -106,7 +106,7 @@ html(lang='en')
 
         .element__actions
           h1.element__title Card
-          h2.element__subtitle With block of text
+          h2.element__subtitle Image -> Caption -> Details
 
           .button--ui.button--enter
             i.mdi.mdi-ray-start-arrow
@@ -117,21 +117,32 @@ html(lang='en')
             span Exit
 
         .element__container
-          .card.card--full.color--dark
+          .card.card--full.color--dark.opacity--zero
+            img.card__image.opacity--zero(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
             h3.card__title theo prins
-            img.card__image(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
            
-            .card__content 
+            //- .card__content.opacity--zero.hidden
               p.
                 He grew up in the Pacific Northwest and the Netherlands and spent most of his childhood drawing airplanes, cities and dinosaurs. As a teenager he financed flying lessons with aviation art commissions but dropped his idea of becoming a pilot when he discovered his passion for digital art.
               p.
                 Since 2007 he's been working as a concept artist in the video game industry. This opened the doors to a somewhat nomadic existence. First he worked for CCP games in Iceland, then Reloaded studios in South Korea and eventually began traveling and living in different cities throughout Asia while freelancing on the go. He's had a temporary studio space aboard a container ship crossing the Pacific Ocean, telecommuted from the Himalayan foothills, lived on a small island off Hong Kong, visited ship breaking yards in India and has extensively explored street markets and alleyways around Asia.
+
+          //- .card.card--full.color--dark
+          //-   h3.card__title theo prins
+          //-   img.card__image.opacity--zero(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
+           
+
+
+
+
+
 
 
     .breakpoint-helper
 
   //- bower downloaded. manually referenced
   script(src='../app/jquery/dist/jquery.js')
+  script(src='../app/lodash/lodash.js')
   script(src='../app/verge/verge.js')
   script(src='../app/gsap/src/uncompressed/TweenMax.js')
   script(src='../app/fastclick/lib/fastclick.js')
@@ -145,10 +156,11 @@ html(lang='en')
 
   //- manually copied via npm/node_modules
   //- TODO: refactor to browserify
-  script(src='../js/response.js')
+  //- script(src='../js/response.js')
 
   //- 3rd party/vendor  
   script(src='../js/cubicBezier.js')
+  script(src='../js/utils.js')
 
   //- app
   script(src='../js/flockingDefinitions.js')

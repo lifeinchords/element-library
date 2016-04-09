@@ -13,7 +13,7 @@ function getTransformedPosition(element){
   var array = _.words(cssTransform.replace(pattern, ''));
 
   return { 
-    top: array[0],
-    left: array[1]
+    y: array[0],
+    x: array[1]
   };
 };
