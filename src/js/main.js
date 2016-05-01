@@ -6,12 +6,12 @@ $(document).ready(function () {
 
 
   var patch
-        $.get('pd/droids3.pd', function(patchStr) {
+        $.get('pd/main2.pd', function(patchStr) {
           patch = Pd.loadPatch(patchStr)
           Pd.start()
         })
 
-        
+
   // setting up syntax highlighting for element documentation
   // hljs.initHighlightingOnLoad();
 
