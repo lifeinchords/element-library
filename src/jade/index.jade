@@ -148,22 +148,24 @@ html(lang='en')
   script(src='../app/fastclick/lib/fastclick.js')
   script(src='../app/highlightjs/highlight.pack.js')
   script(src='../app/teoria/teoria.js')
-  script(src='../app/flocking/dist/flocking-no-jquery.min.js')
+
+
+  //- script(src='../app/flocking/dist/flocking-no-jquery.min.js')
 
   //- via CDN
-  script(src='http://cdn.jsdelivr.net/mojs/latest/mo.min.js')
+  //- script(src='http://cdn.jsdelivr.net/mojs/latest/mo.min.js')
   //- script(src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js')
 
-  //- manually copied via npm/node_modules
+  //- 3rd party/vendor  
   //- TODO: refactor to browserify
+  script(src='../js/vendor--cubicBezier.js')
+  script(src='../js/vendor--utils.js')
+  //- manually copied via npm/node_modules
+  script(src='../js/vendor--webpd-latest.js')
   //- script(src='../js/response.js')
 
-  //- 3rd party/vendor  
-  script(src='../js/cubicBezier.js')
-  script(src='../js/utils.js')
-
   //- app
-  script(src='../js/flockingDefinitions.js')
+  //- script(src='../js/flockingDefinitions.js')
   script(src='../js/main.js')
 
 

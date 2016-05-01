@@ -26,7 +26,8 @@
     "postcss-discard-comments": "^2.0.0",
     "postcss-pxtorem": "^3.0.0",
     "postcss-responsive-images": "^1.0.1",
-    "precss": "^1.1.3"
+    "precss": "^1.1.3",
+    "webpd": "^0.4.2"
   },
   "dependencies": {
     "response.js": "^0.9.1"

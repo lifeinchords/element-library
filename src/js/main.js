@@ -7,6 +7,7 @@ $(document).ready(function () {
   // hljs.initHighlightingOnLoad();
 
   window.scrollTo(0, 0);
+  //
 
   // TODO: make init function
   $('.button--panic').on("click", function(){
