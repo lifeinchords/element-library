@@ -184,9 +184,18 @@ $(document).ready(function () {
       "end1-start2"
     ) 
 
+    // .to ( 
+    //   cards[1].$element, 
+    //   0.20, 
+    //   { 
+    //     height: 440, 
+    //     ease: Power4.easeIn
+    //   },
+    //   "+=1.20" // overlap with previous grow
+    // ) 
 
-    // .to ( cards[1].$element.find('.card__image'), 0.3, { scale: 1.3, ease: Power2.easeInOut }, "-=0.15"  ) 
-    .to ( cards[1].$element.find('.card__image'), 0.30, { height: 280, margin: 20, width: 340, ease: Power2.easeIn }, "-=0.30"  ) 
+    .to ( cards[1].$element.find('.card__image'), 0.3, { scale: 1.2, ease: Power2.easeIn }, "-=0.2"  ) 
+    .to ( cards[1].$element.find('.card__image'), 0.30, { height: 280, width: 340, margin: 20, ease: Power2.easeIn }, "-=0.30"  ) 
     .to ( cards[1].$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "-=0.10"  ) 
     
   $('.element--two .button--enter').on('click', function(){

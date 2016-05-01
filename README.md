@@ -67,6 +67,9 @@ https://www.youtube.com/watch?v=tvx_QgS7D8Q
 - loading ping
 - loading ping bounces to the left, turns into cutting intro line
 - motion trail line
+------ ploma
+------ https://github.com/williamngan/line
+
 - try FM in flocking. Look at sound example from mags.
 - polygon shape avatars, layout like documentary mag
 

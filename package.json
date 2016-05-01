@@ -29,7 +29,6 @@
     "precss": "^1.1.3"
   },
   "dependencies": {
-    "postcss": "^5.0.19",
     "response.js": "^0.9.1"
   }
 }
