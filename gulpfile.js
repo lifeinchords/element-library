@@ -31,15 +31,23 @@ gulp.task('default', ['server'], function() {
   gulp.watch('src/jade/**', function(event) {
     gulp.run('jade');
   });
+  
   gulp.watch('src/html/**', function(event) {
     gulp.run('html');
   });
+
+  gulp.watch('src/pd/**', function(event) {
+    gulp.run('pd');
+  });
+  
   gulp.watch('src/css/**', function(event) {
     gulp.run('postcss');
   });
+  
   gulp.watch('src/js/**', function(event) {
     gulp.run('js');
   });
+  
   gulp.watch('src/images/**/*', batch(function (events, done) {
       gulp.start('images', done);
   }));
@@ -63,6 +71,15 @@ gulp.task('html', function() {
     .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream());
 });
+
+// Pd patches
+gulp.task('pd', function() {
+  gulp.src('src/pd/**/*.pd')
+    .pipe(gulp.dest('dist/pd/'))
+    .pipe(browserSync.stream());
+});
+
+
 
 // PostCSS
 

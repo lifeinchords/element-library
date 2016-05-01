@@ -3,6 +3,15 @@
 $(document).ready(function () {
   // console.log('ready');
 
+
+
+  var patch
+        $.get('pd/droids3.pd', function(patchStr) {
+          patch = Pd.loadPatch(patchStr)
+          Pd.start()
+        })
+
+        
   // setting up syntax highlighting for element documentation
   // hljs.initHighlightingOnLoad();
 
