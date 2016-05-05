@@ -79,7 +79,7 @@
         "id": "tone1", 
 
         "ugen": "flock.ugen.sinOsc",
-        "freq": 440,
+        "freq": 110,
         "mul": {
             "ugen": "flock.ugen.envGen",
             "envelope": {
@@ -296,8 +296,8 @@
 
         },
 
-        mix: 0.85,
-        room: 0.85,
+        mix: 0.70,
+        room: 0.5,
         damp: 0.55
       }
     }

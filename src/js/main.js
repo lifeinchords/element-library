@@ -4,12 +4,12 @@ $(document).ready(function () {
   // console.log('ready');
 
 
-
-  var patch
-        $.get('pd/main2.pd', function(patchStr) {
-          patch = Pd.loadPatch(patchStr)
-          Pd.start()
-        })
+  // play a pd patch, via web-pd
+  // var patch
+  //       $.get('pd/farnell--lazer1.pd', function(patchStr) {
+  //         patch = Pd.loadPatch(patchStr)
+  //         Pd.start()
+  //       });
 
 
   // setting up syntax highlighting for element documentation
@@ -41,17 +41,17 @@ $(document).ready(function () {
       "tone1.mul.gate": 1
     });
 
-    // window.coldFuzzySynth.set({
-    //   "pinkNoise.mul.gate": 1,
-    //   "tone1.mul.gate": 1,
-    //   "tone2.mul.gate": 1,
-    //   "tone2-1.mul.gate": 1,
-    //   "tone3.mul.gate": 1,
-    //   "tone3-1.mul.gate": 1,
-    //   "tone4.mul.gate": 1,
-    //   "tone5.mul.gate": 1,
-    //   "tone6.mul.gate": 1
-    // });
+    window.coldFuzzySynth.set({
+      "pinkNoise.mul.gate": 1,
+      "tone1.mul.gate": 1,
+      "tone2.mul.gate": 1,
+      "tone2-1.mul.gate": 1,
+      "tone3.mul.gate": 1,
+      "tone3-1.mul.gate": 1,
+      "tone4.mul.gate": 1,
+      "tone5.mul.gate": 1,
+      "tone6.mul.gate": 1
+    });
 
     // OQ: if I enable all the gates in each voice in the synthdef, and use this
     // to open the gate on the *instrument (the sum)
@@ -72,17 +72,17 @@ $(document).ready(function () {
 
     window.drySineToneSynth.set("tone1.freq", newFreq);   // update the freq in this frame
    
-    // window.coldFuzzySynth.set({
-    //   "pinkNoise.mul.gate": 1,
-    //   "tone1.freq": newFreq,
-    //   "tone2.freq": newFreq,
-    //   "tone2-1.freq": newFreq,
-    //   "tone3.freq": newFreq,
-    //   "tone3-1.freq": newFreq,
-    //   "tone4.freq": newFreq,
-    //   "tone5.freq": newFreq,
-    //   "tone6.freq": newFreq
-    // });
+    window.coldFuzzySynth.set({
+      "pinkNoise.mul.gate": 1,
+      "tone1.freq": newFreq,
+      "tone2.freq": newFreq,
+      "tone2-1.freq": newFreq,
+      "tone3.freq": newFreq,
+      "tone3-1.freq": newFreq,
+      "tone4.freq": newFreq,
+      "tone5.freq": newFreq,
+      "tone6.freq": newFreq
+    });
   };
 
   var timelineDone = function () {
