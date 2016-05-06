@@ -16,7 +16,6 @@ $(document).ready(function () {
   // hljs.initHighlightingOnLoad();
 
   window.scrollTo(0, 0);
-  //
 
   // TODO: make init function
   $('.button--panic').on("click", function(){
@@ -31,7 +30,7 @@ $(document).ready(function () {
   //////////////////////////////// 
   // Set up reusable card callbacks
 
-  var cards = [];
+  window.cards = [];
 
   var timelineStart = function () {
     console.log('morphEnter: timelineStart ...');
@@ -171,12 +170,10 @@ $(document).ready(function () {
     force3D: true
   });
       
-  // grow by 10%
 
   cards[1].timeline
 
-    .addLabel('start', "0")
-
+    .addLabel('stateOne')
     .fromTo ( 
       cards[1].$element, 
       0.25, 
@@ -192,63 +189,88 @@ $(document).ready(function () {
         height: 380, 
         // x: -40, // if we turn off auto centering via CSS, need to account for the centering
         ease: Power2.easeOut
-      },
-      "end1-start2"
+      }
     ) 
 
-    // .to ( 
-    //   cards[1].$element, 
-    //   0.20, 
-    //   { 
-    //     height: 440, 
-    //     ease: Power4.easeIn
-    //   },
-    //   "+=1.20" // overlap with previous grow
-    // ) 
-
-    .to ( cards[1].$element.find('.card__image'), 0.05, { scale: 1, ease: Power2.easeIn }, "-=0.30"  ) 
-    .to ( cards[1].$element.find('.card__image'), 0.30, { height: 280, width: 340, marginLeft: 20, marginRight: 20, marginTop: 20, ease: Power2.easeIn }, "-=0.25"  ) 
-    .to ( cards[1].$element.find('.card__title'), 0.20, { opacity: 1, ease: Power0.easeNone }, "+=0.10", "one"  ) 
+    .addLabel('stateTwo')
+    .to ( cards[1].$element.find('.card__image'), 0.05, { scale: 1, ease: Power2.easeIn }, "-=0.20"  ) 
+    .to ( cards[1].$element.find('.card__image'), 0.25, { height: 280, width: 340, marginLeft: 20, marginRight: 20, marginTop: 20, ease: Power2.easeIn }, "-=0.25"  ) 
+    .to ( cards[1].$element.find('.card__title'), 0.20, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
     
-    .to ( 
-          cards[1].$element, 
-          0.3, 
-          { 
-            height: "+=100", 
-            // x: -40, // if we turn off auto centering via CSS, need to account for the centering
-            ease: Power0.easeNone
-          },
-          "two"
-        ) 
+    .addLabel('stateThree')
+    .to( 
+        cards[1].$element, 
+        0.3, 
+        { 
+          height: "+=100", 
+          // x: -40, // if we turn off auto centering via CSS, need to account for the centering
+          ease: Power0.easeNone
+        }
+    ) 
 
-    .to ( 
-          cards[1].$element, 
-          0.25, 
-          { 
-            height: "+=100", 
-            // x: -40, // if we turn off auto centering via CSS, need to account for the centering
-            ease: Power2
-          },
-          "close"
-        ) 
+    .addLabel('stateFour')
+    .to( 
+        cards[1].$element, 
+        0.3, 
+        { 
+          width: "+=300", 
+          // x: -40, // if we turn off auto centering via CSS, need to account for the centering
+          ease: Power0.easeNone
+        }
+    ) 
 
+    .addLabel('stateFive')
+    .to( 
+        cards[1].$element, 
+        0.5, 
+        { 
+          height: 0, 
+          width: 0,
+          opacity: 0, 
+          ease: Power2.easeOut
+        }
+    )
+
+    .addLabel('stateSix')
+
+  //**********************************
+  // debugging
+  window.labels = cards[1].timeline.getLabelsArray();
+  console.log('-----------');
+
+  _.forEach(labels, function(value, key) {
+    console.log(value);
+  });
+  
+  console.log('total duration: ', cards[1].timeline.totalDuration());
+  console.log('tweens: ', cards[1].timeline.getTweensOf());
+  console.log('-----------');
+  //**********************************
 
   $('.element--two .button--one').on('click', function(){
-    // cards[1].timeline.play();
-    cards[1].timeline.tweenFromTo("startTest", "endTest");
+    console.log('playing 1');
+
+    // cards[1].timeline.seek('one');
+    // cards[1].timeline.tweenTo('two');
+    // cards[1].timeline.play('one');
+    cards[1].timeline.tweenFromTo('stateOne', 'stateThree');
   })
 
   $('.element--two .button--two').on('click', function(){
-    cards[1].timeline.play();
+    console.log('playing 2');
+    cards[1].timeline.tweenTo('stateFour');
   })
 
   $('.element--two .button--three').on('click', function(){
-    cards[1].timeline.play();
+    console.log('playing 3');
+    cards[1].timeline.tweenTo('stateFive');
   })
   
   $('.element--two .button--four').on('click', function(){
-    cards[1].timeline.reverse('two');
-  
+    console.log('playing 4');
+    // cards[1].timeline.reverse('two');
+    // cards[1].timeline.seek('three');
+    cards[1].timeline.tweenTo('stateSix');
   })
 
 
