@@ -268,13 +268,13 @@ $(document).ready(function () {
   
   $('.element--two .button--four').on('click', function(){
     console.log('playing 4');
-    // cards[1].timeline.reverse('two');
-    // cards[1].timeline.seek('three');
     cards[1].timeline.tweenTo('stateSix');
   })
 
-
-
+  $('.element--two .button--reset').on('click', function(){
+    console.log('reset');
+    cards[1].timeline.seek('stateOne');
+  })
 
   //////////////////////////////////////////////////
   // TODO: move to init function

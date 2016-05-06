@@ -54,6 +54,7 @@ To be sure, delete /dist
 TODO
 ------
 
+
 - fix card one vertical centering
 
 - onclick, jump up, squash + stretch
