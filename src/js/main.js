@@ -37,21 +37,21 @@ $(document).ready(function () {
     console.log('morphEnter: timelineStart ...');
 
     // open gate to let sound through
-    window.drySineToneSynth.set({
-      "tone1.mul.gate": 1
-    });
+    // window.drySineToneSynth.set({
+    //   "tone1.mul.gate": 1
+    // });
 
-    window.coldFuzzySynth.set({
-      "pinkNoise.mul.gate": 1,
-      "tone1.mul.gate": 1,
-      "tone2.mul.gate": 1,
-      "tone2-1.mul.gate": 1,
-      "tone3.mul.gate": 1,
-      "tone3-1.mul.gate": 1,
-      "tone4.mul.gate": 1,
-      "tone5.mul.gate": 1,
-      "tone6.mul.gate": 1
-    });
+    // window.coldFuzzySynth.set({
+    //   "pinkNoise.mul.gate": 1,
+    //   "tone1.mul.gate": 1,
+    //   "tone2.mul.gate": 1,
+    //   "tone2-1.mul.gate": 1,
+    //   "tone3.mul.gate": 1,
+    //   "tone3-1.mul.gate": 1,
+    //   "tone4.mul.gate": 1,
+    //   "tone5.mul.gate": 1,
+    //   "tone6.mul.gate": 1
+    // });
 
     // OQ: if I enable all the gates in each voice in the synthdef, and use this
     // to open the gate on the *instrument (the sum)
@@ -175,9 +175,11 @@ $(document).ready(function () {
 
   cards[1].timeline
 
+    .addLabel('start', "0")
+
     .fromTo ( 
       cards[1].$element, 
-      0.30, 
+      0.25, 
 
       // y: 
       { 
@@ -189,7 +191,7 @@ $(document).ready(function () {
         width: 380, 
         height: 380, 
         // x: -40, // if we turn off auto centering via CSS, need to account for the centering
-        ease: Power2.easeIn
+        ease: Power2.easeOut
       },
       "end1-start2"
     ) 
@@ -204,17 +206,51 @@ $(document).ready(function () {
     //   "+=1.20" // overlap with previous grow
     // ) 
 
-    .to ( cards[1].$element.find('.card__image'), 0.3, { scale: 1.2, ease: Power2.easeIn }, "-=0.2"  ) 
-    .to ( cards[1].$element.find('.card__image'), 0.30, { height: 280, width: 340, margin: 20, ease: Power2.easeIn }, "-=0.30"  ) 
-    .to ( cards[1].$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "-=0.10"  ) 
+    .to ( cards[1].$element.find('.card__image'), 0.05, { scale: 1, ease: Power2.easeIn }, "-=0.30"  ) 
+    .to ( cards[1].$element.find('.card__image'), 0.30, { height: 280, width: 340, marginLeft: 20, marginRight: 20, marginTop: 20, ease: Power2.easeIn }, "-=0.25"  ) 
+    .to ( cards[1].$element.find('.card__title'), 0.20, { opacity: 1, ease: Power0.easeNone }, "+=0.10", "one"  ) 
     
-  $('.element--two .button--enter').on('click', function(){
+    .to ( 
+          cards[1].$element, 
+          0.3, 
+          { 
+            height: "+=100", 
+            // x: -40, // if we turn off auto centering via CSS, need to account for the centering
+            ease: Power0.easeNone
+          },
+          "two"
+        ) 
+
+    .to ( 
+          cards[1].$element, 
+          0.25, 
+          { 
+            height: "+=100", 
+            // x: -40, // if we turn off auto centering via CSS, need to account for the centering
+            ease: Power2
+          },
+          "close"
+        ) 
+
+
+  $('.element--two .button--one').on('click', function(){
+    // cards[1].timeline.play();
+    cards[1].timeline.tweenFromTo("startTest", "endTest");
+  })
+
+  $('.element--two .button--two').on('click', function(){
     cards[1].timeline.play();
   })
 
-  $('.element--two .button--exit').on('click', function(){
-    cards[1].timeline.reverse();
+  $('.element--two .button--three').on('click', function(){
+    cards[1].timeline.play();
   })
+  
+  $('.element--two .button--four').on('click', function(){
+    cards[1].timeline.reverse('two');
+  
+  })
+
 
 
 
