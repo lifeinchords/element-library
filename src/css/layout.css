@@ -40,10 +40,10 @@ body {
 
 .button--ui {
   display: inline-block;
-  padding: 0.9rem 1.5rem;
+  padding: 0.6rem 1.1rem;
   margin: 0.3rem;
-  background: #9E9D9D;
   color: #ECECEC;
+  background: #565B73;
   cursor: pointer;
   font-size: 1.2rem;
   letter-spacing: 1px;
@@ -51,6 +51,11 @@ body {
   &:hover {
     opacity: 0.8;
   }
+}
+
+.button--secondary {
+  background: transparent;
+  text-decoration: underline;
 }
 
 .menu__icon {
@@ -112,7 +117,7 @@ body {
 }
 
 .element__actions {
-  background: #303A55;
+  /*background: #303A55;*/
   padding: 1rem;
 }
 
@@ -173,6 +178,6 @@ body {
   lost-column: 1/2;
 }
 
-.opacity--zero {
-  opacity: 0;
-}
+
+
+

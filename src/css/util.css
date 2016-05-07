@@ -1,0 +1,25 @@
+.opacity--zero {
+  opacity: 0;
+}
+
+.opacity--one {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.color--light {
+  color: white;
+}
+
+.color--dark {
+  color: #444052;
+}
+
+
+.position--absolute {
+  position: absolute;
+}

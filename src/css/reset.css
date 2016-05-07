@@ -129,7 +129,3 @@ h6 {
   line-height: $fontSize;
   letter-spacing: 0;
 }
-
-.hidden {
-  display: none;
-}

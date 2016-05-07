@@ -3,6 +3,9 @@
 $(document).ready(function () {
   // console.log('ready');
 
+  // disable sound during debugging
+  window.enviro.stop();
+
 
   // play a pd patch, via web-pd
   // var patch
@@ -110,7 +113,7 @@ $(document).ready(function () {
   // ONE
   cards[0] = {};
   cards[0].$element = $('.element--one .card');
-  cards[0].height = 400;
+  cards[0].height = "60vh";
   cards[0].width = "100%";
 
   cards[0].timeline = new TimelineMax({
@@ -128,7 +131,7 @@ $(document).ready(function () {
       cards[0].$element, 
       0.2, 
       { width: 2, height: 0, y: cards[0].height / 2 },  // from
-      { width: cards[0].width, height: 2, ease: Power4.easeOut }, // to
+      { width: cards[0].width, height: "0.25vh", ease: Power4.easeOut }, // to
       "left-to-right" // label
     ) 
     
@@ -178,43 +181,45 @@ $(document).ready(function () {
       cards[1].$element, 
       0.25, 
 
-      // y: 
       { 
-        width: 300, 
-        height: 240,
+        width: "85%", 
+        height: "45vh",
+        // height: "300px",
         x: 0
       },
       { 
-        width: 380, 
-        height: 380, 
-        // x: -40, // if we turn off auto centering via CSS, need to account for the centering
+        width: "95%", 
+        height: "60vh", 
+        // height: "400px",
         ease: Power2.easeOut
       }
     ) 
 
+
+    // .to ( cards[1].$element.find('.card__image'), 0.15, { scale: 1.2, ease: Power4.easeNone }, "-=0.23"  ) 
+    // .set ( cards[1], { backgroundColor: "lightGray" } ) 
+
     .addLabel('stateTwo')
-    .to ( cards[1].$element.find('.card__image'), 0.05, { scale: 1, ease: Power2.easeIn }, "-=0.20"  ) 
-    .to ( cards[1].$element.find('.card__image'), 0.25, { height: 280, width: 340, marginLeft: 20, marginRight: 20, marginTop: 20, ease: Power2.easeIn }, "-=0.25"  ) 
+
     .to ( cards[1].$element.find('.card__title'), 0.20, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
     
     .addLabel('stateThree')
     .to( 
         cards[1].$element, 
-        0.3, 
+        0.2, 
         { 
-          height: "+=100", 
-          // x: -40, // if we turn off auto centering via CSS, need to account for the centering
-          ease: Power0.easeNone
+          height: "+=10vh", 
+          ease: Power4.easeOut
         }
     ) 
 
     .addLabel('stateFour')
     .to( 
         cards[1].$element, 
-        0.3, 
+        0.1, 
         { 
-          width: "+=300", 
-          // x: -40, // if we turn off auto centering via CSS, need to account for the centering
+          width: "+=10%", 
+          height: "-=5vh", 
           ease: Power0.easeNone
         }
     ) 
@@ -224,14 +229,13 @@ $(document).ready(function () {
         cards[1].$element, 
         0.5, 
         { 
-          height: 0, 
-          width: 0,
+          height: "10%", 
           opacity: 0, 
-          ease: Power2.easeOut
+          ease: Power2.easeInOut
         }
     )
 
-    .addLabel('stateSix')
+    .addLabel('stateExit')
 
   //**********************************
   // debugging
@@ -268,7 +272,7 @@ $(document).ready(function () {
   
   $('.element--two .button--four').on('click', function(){
     console.log('playing 4');
-    cards[1].timeline.tweenTo('stateSix');
+    cards[1].timeline.tweenTo('stateExit');
   })
 
   $('.element--two .button--reset').on('click', function(){

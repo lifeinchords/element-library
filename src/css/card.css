@@ -13,12 +13,8 @@
   background-color: linear-gradient(to left, #1D1C20 , #27262C); 
 }
 
-.element--one.card {
 
-}
 
-.element--two.card {
-}
 
 .card__title {
   position: relative;
@@ -27,26 +23,15 @@
   opacity: 0;
 }
 
-.color--light {
+.card__title--light { 
   color: white;
 }
 
-.color--dark {
-  color: #444052;
+.card__title--dark { 
+  color: gray;
 }
 
-/* 
-.card:nth-of-type(1) {
 
-}
-
-.card:nth-of-type(2) {
-  background-image: url('');
-}
-.card:nth-of-type(3) {
-  background-image: url('');
-}
- */
 
 .card__image {
 /*  position: absolute;
@@ -54,12 +39,14 @@
   top: 0;
 */
   width: 100%;
-  height: auto;
+  height: 100%;
 
   /* 
     Like background-size, but for image 
     https://css-tricks.com/almanac/properties/o/object-fit
 
+    Using this, vs background images so we can add responsive images 
+    via <picture> element / srcset next.
     TODO: Doesnt work in IE, need fallback 
   */
   object-fit: cover;
@@ -73,5 +60,11 @@
 
 }
 
+.icon--arrow-right {
+  color: #918F8F;
+}
 
+.card__title--slide-in {
+  position: absolute;
+}
 
