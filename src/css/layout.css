@@ -132,12 +132,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  min-height: 30rem;  
-
 }
 
-.single {
+.element__container--single {
 
   @media ($sm) { 
     lost-column: 4/4; 
@@ -157,37 +154,29 @@ body {
     lost-column: 14/32; 
     lost-offset: -9/32; 
   }
+
+  min-height: 30rem;  
+  
 }
 
 
-.collection {
-
-  /* to center the children of the container, 
-     the component itself, the card */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  min-height: 30rem;  
+.element__container--collection {
 
   @media ($sm) { 
-    lost-column: 1/3 0 0; 
+    lost-column: 1/1 0 0; 
   }
  
-  /* @media ($md) { 
-    lost-column: 4/6; 
-    lost-offset: -1/6; 
+  @media ($md) { 
+    lost-column: 1/2 0 0; 
   }
  
   @media ($lg) { 
-    lost-column: 12/20; 
-    lost-offset: -4/20; 
+    lost-column: 1/3 0 0; 
   }
  
   @media ($xl) { 
-    lost-column: 14/32; 
-    lost-offset: -9/32; 
-  } */
+    lost-column: 1/4 0 0; 
+  }
 }
 
 

@@ -222,8 +222,8 @@ $(document).ready(function () {
         cards[1].$element, 
         0.1, 
         { 
-          width: "+=10%", 
-          height: "-=5vh", 
+          width: "+=20%", 
+          height: "-=25vh", 
           ease: Power0.easeNone
         }
     ) 

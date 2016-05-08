@@ -13,6 +13,16 @@
   background-color: linear-gradient(to left, #1D1C20 , #27262C); 
 }
 
+.card--collection {
+  
+  margin: 0;
+
+  @media ($sm) { height: 15vh; }
+  @media ($md) { height: 30vh; }
+  @media ($lg) { height: 35vh; }
+  @media ($xl) { height: 30vh; }
+}
+
 
 .card__title {
   position: relative;
