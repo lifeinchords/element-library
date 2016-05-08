@@ -109,6 +109,9 @@ $(document).ready(function () {
     });
   };
 
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+
   // ONE
   cards[0] = {};
   cards[0].$element = $('.element--one .card');
@@ -126,14 +129,15 @@ $(document).ready(function () {
       
   cards[0].timeline
 
-    
+    .addLabel("left-to-right")
+
     .to ( 
       cards[0].$element, 
       0.2, 
       { width: cards[0].width, opacity: 1, height: "0.25vh", ease: Power4.easeOut }
     ) 
 
-    .addLabel("left-to-right")
+    .addLabel("top-to-bottom")
 
     .fromTo   ( 
       cards[0].$element, 0.20, 
@@ -142,9 +146,9 @@ $(document).ready(function () {
       "+=0.4" // position 
     ) 
 
-    .addLabel("top-to-bottom")
+    .addLabel("settle-in")
 
-    .to ( cards[0].$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
+    .to ( cards[0].$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.10" ) 
     .to ( cards[0].$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
     .to ( cards[0].$element.find('.card__title'), 0.3, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
 
@@ -159,6 +163,7 @@ $(document).ready(function () {
   })
 
 
+  //////////////////////////////////////////////////
   //////////////////////////////////////////////////
   // TWO
   cards[1] = {};
