@@ -162,7 +162,6 @@ $(document).ready(function () {
     cards[0].timeline.reverse();
   })
 
-
   //////////////////////////////////////////////////
   //////////////////////////////////////////////////
   // TWO
@@ -178,7 +177,6 @@ $(document).ready(function () {
     paused: true,
     force3D: true
   });
-      
 
   cards[1].timeline
 
@@ -199,8 +197,6 @@ $(document).ready(function () {
       }
     ) 
 
-
-    // .to ( cards[1].$element.find('.card__image'), 0.15, { scale: 1.2, ease: Power4.easeNone }, "-=0.23"  ) 
     // .set ( cards[1], { backgroundColor: "lightGray" } ) 
 
     .addLabel('stateTwo')
@@ -241,79 +237,84 @@ $(document).ready(function () {
 
     .addLabel('stateExit')
 
-  //**********************************
-
-
-  printTimelineLabels();
-  
-  //**********************************
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
   $('.element--two .button--one').on('click', function(){
-    console.log('playing 1');
-
-    // cards[1].timeline.seek('one');
-    // cards[1].timeline.tweenTo('two');
-    // cards[1].timeline.play('one');
+    // console.log('playing 1');
     cards[1].timeline.tweenFromTo('stateOne', 'stateThree');
   })
 
   $('.element--two .button--two').on('click', function(){
-    console.log('playing 2');
+    // console.log('playing 2');
     cards[1].timeline.tweenTo('stateFour');
   })
 
   $('.element--two .button--three').on('click', function(){
-    console.log('playing 3');
+    // console.log('playing 3');
     cards[1].timeline.tweenTo('stateFive');
   })
   
   $('.element--two .button--four').on('click', function(){
-    console.log('playing 4');
+    // console.log('playing 4');
     cards[1].timeline.tweenTo('stateExit');
   })
 
   $('.element--two .button--reset').on('click', function(){
-    console.log('reset');
+    // console.log('reset');
     cards[1].timeline.seek('stateOne');
   })
 
   //////////////////////////////////////////////////
-  // TODO: move to init function
-  var tlCards = new TimelineMax();
+  //////////////////////////////////////////////////
 
-  tlCards
+  $('.element--three .button--one').on('click', function(){
+    console.log('playing 1');
 
-    // // position the cards in the center
-    // .set(
-    //   ".element--two .card",
-    //   {
-    //     // TODO: optimize and stores these vars to reduce calls
-    //     x: $(".element--two .card").width() / 2,
-    //     y: $(".element--two .card").height() / 2
-    //   }
-    // )
-      
-    // fade them in, along with thier content that's been marked for fade in
-    .staggerTo(
-      [ ".element--two .card", ".opacity--zero" ],
-      0.2, 
-      { 
-        opacity: 1, 
-        ease: Power2.easeInOut,
-        cycle: {
-          rotationX: "10%"
-        }
-      }
-    ) 
-  
+    TweenMax.staggerFromTo(
+      ".element--three .card", 
+      0.4, 
+      { scale: 0.96, opacity: 0, y: -5 },
+      { scale: 1, opacity: 1, y: 0, ease:Power4.easeIn }, 
+      0.075);
+
+    // // fade them in, along with thier content that's been marked for fade in
+    // TweenMax.staggerTo(
+
+    //   [ ".element--three .card" ],
+    //   1, 
+    //   { 
+    //     opacity: 1, 
+    //     ease: Power2.easeInOut,
+    //     cycle: {
+    //       rotationX: "10%"
+    //     }
+    //   },
+    //   "+=0.2"
+    // ) 
+
+  })
+
+  $('.element--three .button--reset').on('click', function(){
+    // console.log('reset');
+    TweenMax.staggerTo(".element--three .card", 0.5, { opacity: 0, y: +10, ease:Back.easeIn }, 0.1);
+  })
+
+  // TODO: why is the page scrolling to second element group?
+  // and this doesnt return to top of page on load?
   window.scrollTo(0, 0);
-
 
 });
 
 
-function printTimelineLabels(){
-  var labels = cards[1].timeline.getLabelsArray();
+
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// TODO: move to helpers / debugging 
+
+function printTimelineLabels(card){
+  var labels = card.timeline.getLabelsArray();
   console.log('-----------');
 
   _.forEach(labels, function(value, key) {
@@ -325,8 +326,7 @@ function printTimelineLabels(){
   console.log('-----------');
 }
 
-
-
+//////////////////////////////////////////////////
 
 
 

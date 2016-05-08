@@ -79,26 +79,60 @@ html(lang='en')
       a.button--panic
         i.mdi.mdi-volume-off.menu__icon
       
-      .element__group.element--one
-        .element__actions
-          h1.element__title Scanline Card
-          h2  
-          .button--ui.button--enter
-            //- i.mdi.mdi-ray-start-arrow
-            span enter
-          .button--ui.button--exit
-            //- i.mdi.mdi-ray-end-arrow
-            span exit
 
-        .element__container.element__container--single
-          .card.card--quarter.opacity--zero.squeezed
-            h3.card__title theo prins
-            img.card__image(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
-            p.card__text
-            .button.button--cta
-              i.mdi.mdi-ray-end-arrow
-              span
-                | Add To Collection
+
+
+      .element__group.element--three
+        .element__actions
+          h1.element__title Card Collection
+          h2.element__subtitle
+
+          .button--ui.button--secondary.button--reset
+            span reset
+
+          .button--ui.button--one
+            span enter
+
+          //- i.mdi.mdi-arrow-right.icon--arrow-right
+          //- .button--ui.button--two
+          //-   span 2
+
+          //- i.mdi.mdi-arrow-right.icon--arrow-right
+          //- .button--ui.button--three
+          //-   span 3
+
+        .element__container.element__container--collection
+          .card.card--collection.opacity--zero
+            img.card__image(src='https://d2pi0bc9ewx28h.cloudfront.net/4142f99c88c3f2a7cf65dbb32d889e74/ydhfeo0/Zrmo2ltwk/tumblr_static_21w21rfvvr284wsssc4k4gs8w.jpg')
+            h3.card__title.card__title--overlay ashley mackenzie
+    
+        .element__container.element__container--collection
+          .card.card--collection.opacity--zero
+            img.card__image(src='https://41.media.tumblr.com/a844c90b43a2d37db4ae70e95ec27626/tumblr_mlth88RPdO1s5mxu2o1_1280.jpg')
+            h3.card__title.card__title--overlay ashley mackenzie
+    
+        .element__container.element__container--collection
+          .card.card--collection.opacity--zero
+            img.card__image(src='https://41.media.tumblr.com/f8360aaf745e35fd0638fa675f9add19/tumblr_njmkf2P7KA1qkwuado1_1280.jpg')
+            h3.card__title.card__title--overlay ashley mackenzie
+    
+        .element__container.element__container--collection
+          .card.card--collection.opacity--zero
+            img.card__image(src='http://fantastic-art.ru/images/2015/02/Ashley-Mackenzie-02.jpg')
+            h3.card__title.card__title--overlay ashley mackenzie
+    
+        .element__container.element__container--collection
+          .card.card--collection.opacity--zero
+            img.card__image(src='http://theinspirationgrid.com/wp-content/uploads/2013/06/Ashley-Mackenzie-illustration-05.jpg')
+            h3.card__title.card__title--overlay ashley mackenzie
+    
+        .element__container.element__container--collection
+          .card.card--collection.opacity--zero
+            img.card__image(src='http://cromeyellow.com/wp-content/uploads/2013/05/Ashley_Mackenzie_1.jpg')
+            h3.card__title.card__title--overlay ashley mackenzie
+
+
+
 
       .element__group.element--two
         .element__actions
@@ -124,54 +158,32 @@ html(lang='en')
             span 4
 
         .element__container.element__container--single
-          .card.opacity--zero
-            img.card__image.opacity--zero(src='http://community.paletteartclasses.com/wp/wp-content/uploads/2015/10/Jeremy-Mann-04.jpg')
+          .card
+            img.card__image(src='http://community.paletteartclasses.com/wp/wp-content/uploads/2015/10/Jeremy-Mann-04.jpg')
             h3.card__title.card__title--overlay jeremy mann
     
 
 
-      .element__group.element--three
+      .element__group.element--one
         .element__actions
-          h1.element__title Card Collection
-          h2.element__subtitle
-
-          .button--ui.button--secondary.button--reset
-            span reset
-
-          .button--ui.button--one
+          h1.element__title Scanline Card
+          h2  
+          .button--ui.button--enter
+            //- i.mdi.mdi-ray-start-arrow
             span enter
+          .button--ui.button--exit
+            //- i.mdi.mdi-ray-end-arrow
+            span exit
 
-          //- i.mdi.mdi-arrow-right.icon--arrow-right
-          //- .button--ui.button--two
-          //-   span 2
-
-          //- i.mdi.mdi-arrow-right.icon--arrow-right
-          //- .button--ui.button--three
-          //-   span 3
-
-        .element__container.element__container--collection
-          .card.card--collection.opacity--zero
-            img.card__image.opacity--zero(src='https://d2pi0bc9ewx28h.cloudfront.net/4142f99c88c3f2a7cf65dbb32d889e74/ydhfeo0/Zrmo2ltwk/tumblr_static_21w21rfvvr284wsssc4k4gs8w.jpg')
-            h3.card__title.card__title--overlay ashley mackenzie
-    
-        .element__container.element__container--collection
-          .card.card--collection.opacity--zero
-            img.card__image.opacity--zero(src='https://41.media.tumblr.com/a844c90b43a2d37db4ae70e95ec27626/tumblr_mlth88RPdO1s5mxu2o1_1280.jpg')
-            h3.card__title.card__title--overlay ashley mackenzie
-    
-        .element__container.element__container--collection
-          .card.card--collection.opacity--zero
-            img.card__image.opacity--zero(src='https://41.media.tumblr.com/f8360aaf745e35fd0638fa675f9add19/tumblr_njmkf2P7KA1qkwuado1_1280.jpg')
-            h3.card__title.card__title--overlay ashley mackenzie
-    
-        .element__container.element__container--collection
-          .card.card--collection.opacity--zero
-            img.card__image.opacity--zero(src='http://fantastic-art.ru/images/2015/02/Ashley-Mackenzie-02.jpg')
-            h3.card__title.card__title--overlay ashley mackenzie
-    
-
-
-
+        .element__container.element__container--single
+          .card.card--quarter.opacity--zero.squeezed
+            h3.card__title theo prins
+            img.card__image(src='http://designwar.net/wp-content/uploads/2015/05/theo-prins-odd-theoprins.jpg')
+            p.card__text
+            .button.button--cta
+              i.mdi.mdi-ray-end-arrow
+              span
+                | Add To Collection
 
 
 
