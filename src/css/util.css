@@ -10,16 +10,7 @@
   display: none;
 }
 
-
-.color--light {
-  color: white;
-}
-
-.color--dark {
-  color: #444052;
-}
-
-
-.position--absolute {
-  position: absolute;
+.squeezed {
+  height: 0;
+  width: 0;
 }

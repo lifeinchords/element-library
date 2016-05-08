@@ -55,8 +55,6 @@ TODO
 ------
 
 
-- fix card one vertical centering
-
 - onclick, jump up, squash + stretch
 
 - 43 mins in: pipe Noise sample through granular synthesis for timbre, then through a comb filter for pitch
@@ -93,6 +91,7 @@ https://www.youtube.com/watch?v=tvx_QgS7D8Q
 
 LATER
 -------
+
 
 - blend mode
 - SVG image mask experiments

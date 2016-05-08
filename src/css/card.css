@@ -14,21 +14,18 @@
 }
 
 
-
-
 .card__title {
   position: relative;
   z-index: 1;
   padding: 1rem;
   opacity: 0;
+  color: #444052;
 }
 
-.card__title--light { 
+.card__title--overlay {
+  position: absolute;
+  bottom: 0;
   color: white;
-}
-
-.card__title--dark { 
-  color: gray;
 }
 
 
@@ -56,15 +53,6 @@
   opacity: 0.85;
 }
 
-.card__button--play {
-
-}
-
 .icon--arrow-right {
   color: #918F8F;
 }
-
-.card__title--slide-in {
-  position: absolute;
-}
-

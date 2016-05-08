@@ -18,7 +18,6 @@ $(document).ready(function () {
   // setting up syntax highlighting for element documentation
   // hljs.initHighlightingOnLoad();
 
-  window.scrollTo(0, 0);
 
   // TODO: make init function
   $('.button--panic').on("click", function(){
@@ -127,21 +126,23 @@ $(document).ready(function () {
       
   cards[0].timeline
 
-    .fromTo   ( 
+    
+    .to ( 
       cards[0].$element, 
       0.2, 
-      { width: 2, height: 0, y: cards[0].height / 2 },  // from
-      { width: cards[0].width, height: "0.25vh", ease: Power4.easeOut }, // to
-      "left-to-right" // label
+      { width: cards[0].width, opacity: 1, height: "0.25vh", ease: Power4.easeOut }
     ) 
-    
+
+    .addLabel("left-to-right")
+
     .fromTo   ( 
       cards[0].$element, 0.20, 
       { width: cards[0].width, height: 2, y: cards[0].height / 2, scale: 1 }, 
       { width: cards[0].width, height: cards[0].height, ease: Power4.easeOut, y: 0, immediateRender: false, scale: 1.02 }, 
-      "+=0.4", // position 
-      "top-to-bottom" // label
+      "+=0.4" // position 
     ) 
+
+    .addLabel("top-to-bottom")
 
     .to ( cards[0].$element, 0.20, { scale: 1, ease: Circ.easeInOut  }, "+=0.25", "settle-in" ) 
     .to ( cards[0].$element.find('.card__image'), 0.3, { opacity: 1, ease: Power2.easeInOut }, "-=0.15"  ) 
@@ -184,13 +185,11 @@ $(document).ready(function () {
       { 
         width: "85%", 
         height: "45vh",
-        // height: "300px",
         x: 0
       },
       { 
         width: "95%", 
         height: "60vh", 
-        // height: "400px",
         ease: Power2.easeOut
       }
     ) 
@@ -201,7 +200,7 @@ $(document).ready(function () {
 
     .addLabel('stateTwo')
 
-    .to ( cards[1].$element.find('.card__title'), 0.20, { opacity: 1, ease: Power0.easeNone }, "+=0.10"  ) 
+    .to ( cards[1].$element.find('.card__title'), 0.20, { opacity: 1, ease: Power0.easeNone }, "+=0.05"  ) 
     
     .addLabel('stateThree')
     .to( 
@@ -238,17 +237,10 @@ $(document).ready(function () {
     .addLabel('stateExit')
 
   //**********************************
-  // debugging
-  window.labels = cards[1].timeline.getLabelsArray();
-  console.log('-----------');
 
-  _.forEach(labels, function(value, key) {
-    console.log(value);
-  });
+
+  printTimelineLabels();
   
-  console.log('total duration: ', cards[1].timeline.totalDuration());
-  console.log('tweens: ', cards[1].timeline.getTweensOf());
-  console.log('-----------');
   //**********************************
 
   $('.element--two .button--one').on('click', function(){
@@ -298,7 +290,7 @@ $(document).ready(function () {
       
     // fade them in, along with thier content that's been marked for fade in
     .staggerTo(
-      [ ".card", ".opacity--zero" ],
+      [ ".element--two .card", ".opacity--zero" ],
       0.2, 
       { 
         opacity: 1, 
@@ -309,11 +301,24 @@ $(document).ready(function () {
       }
     ) 
   
+  window.scrollTo(0, 0);
+
 
 });
 
 
+function printTimelineLabels(){
+  var labels = cards[1].timeline.getLabelsArray();
+  console.log('-----------');
 
+  _.forEach(labels, function(value, key) {
+    console.log(value);
+  });
+  
+  console.log('total duration: ', cards[1].timeline.totalDuration());
+  console.log('tweens: ', cards[1].timeline.getTweensOf());
+  console.log('-----------');
+}
 
 
 
