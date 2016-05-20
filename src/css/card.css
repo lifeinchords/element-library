@@ -1,6 +1,7 @@
 @import "mq.css"; 
 
 
+
 .card {
   position: relative;
   overflow: hidden;
@@ -65,4 +66,8 @@
 
 .icon--arrow-right {
   color: #918F8F;
+}
+
+.element--three .card {
+  opacity: 1;
 }

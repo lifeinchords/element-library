@@ -265,11 +265,44 @@ $(document).ready(function () {
     cards[1].timeline.seek('stateOne');
   })
 
+  ///////////// Hierarchical timing via GSAP /////////////////////
   //////////////////////////////////////////////////
   //////////////////////////////////////////////////
+  
+  /////  Forked from: 
+  /////    http://codepen.io/GreenSock/pen/ramJGv?editors=001
+  
+  /////  Which is forked from:
+  /////    Kupletsky Sergey http://codepen.io/zavoloklom/pen/Jbrho/?editors=011 (uses CSS animations)
+    
+
 
   $('.element--three .button--one').on('click', function(){
-    console.log('playing 1');
+    console.log('playing element 3');
+    var tl = new TimelineMax();
+    var delayMultiplier = 0.0005;
+    var duration = 0.1;
+    var elements = $(".element--three .card");
+
+      // use this loop to create tweens for each box, but set the delay based on its x / y position
+    elements.each(function() {      
+      var elementOffset = $(this).offset(); 
+      var offset = elementOffset.left + elementOffset.top;
+      var delay = parseFloat(offset * delayMultiplier).toFixed(2);
+      tl.to(this, duration, { opacity: 1, scale: 1 }, delay/3)
+    });
+  });
+
+  $('.element--three .button--reset').on('click', function(){
+    console.log('resetting element 3')
+    TweenLite.set(".element--three .card", { opacity: 0, scale: 0});
+  })
+
+  //////////////////////////////////////////////////
+  ///////////// ALT VERSION, using GSAP Stagger 
+  /////////////////////////
+  /*
+  $('.element--three .button--one').on('click', function(){
 
     TweenMax.staggerFromTo(
       ".element--three .card", 
@@ -300,11 +333,19 @@ $(document).ready(function () {
     TweenMax.staggerTo(".element--three .card", 0.5, { opacity: 0, y: +10, ease:Back.easeIn }, 0.1);
   })
 
+  */
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+
+
   // TODO: why is the page scrolling to second element group?
   // and this doesnt return to top of page on load?
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
+
+
 
 });
+
 
 
 
